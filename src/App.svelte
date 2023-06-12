@@ -4,13 +4,13 @@
   import SectionHeader from "./lib/SectionHeader.svelte";
   import NavBar from "./lib/NavBar.svelte";
   import CssTest from "./lib/CssTest.svelte";
+  import About from "./sections/About.svelte";
 </script>
 
 <main>
 
-  <div id="About"></div>
   <NavBar/>
-  <Font2/>
+  <About/>
   <SectionHeader name="Skills"/>
   <SectionHeader name="Projects"/>
   <SectionHeader name="Interests"/>

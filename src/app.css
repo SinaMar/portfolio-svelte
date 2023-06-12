@@ -1,11 +1,15 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+
+  --accent-color: #2EB775;
+  --bg-dark: #21242C;
+  --bg: #2A2F39;
+  --font: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-heading: OtomanopeeOne, "Times New Roman", serif;
+
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #2A2F39;
+  background-color: var(--bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +19,11 @@
   /*width: 100%;*/
   box-sizing: border-box;
 
-  --accent-color: #2EB775;
-  --bg-dark: #21242C;
 
-  --font: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-heading: OtomanopeeOne, "Times New Roman", serif;
+  font-family: var(--font);
+  line-height: 1.5;
+  font-weight: 400;
+
 }
 
 
@@ -52,6 +56,7 @@ h1 {
 
 * {
   box-sizing: inherit;
+  font-family: var(--font);
 }
 
 
