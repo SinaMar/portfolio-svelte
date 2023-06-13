@@ -1,13 +1,21 @@
-export enum SkillType {
-    Language,
-    Library,
-    Tool,
-}
+// export enum SkillType {
+//     Language,
+//     Library,
+//     Tool,
+// }
+
+export const Category = {
+    Language: "Language",
+    Library: "Library",
+    Tool: "Tool"
+} as const;
+
+export type CategoryType = typeof Category[keyof typeof Category]
 
 export interface Skill {
     name: string;
     progress: number;
-    type: SkillType;
+    category: CategoryType;
     favourite: boolean;
     active: boolean;
 }

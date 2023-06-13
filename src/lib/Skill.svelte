@@ -1,7 +1,7 @@
 <script lang="ts">
 
-    import heart from '../assets/heart.svg'
-    import forward from '../assets/forward.svg'
+    import heart from '../assets/icons/heart.svg'
+    import forward from '../assets/icons/forward.svg'
 
     export let name = 'Vite';
     export let fav = false;
@@ -17,7 +17,7 @@
         <img src={heart} alt="heart" class="heart">
     {/if}
     <img src={logoPath} alt="logo" class="tech-logo">
-    <p>Firebase</p>
+    <p>{name}</p>
     <div class="progress-bg">
         <div class="progress" style="width: {progress}%"></div>
         {#if active}
@@ -43,7 +43,8 @@
 
     .tech-logo {
       background-color: var(--bg);
-      width: min-content;
+      width: 4rem;
+      height: 4rem;
       border-radius: 1rem;
       padding: 1rem;
       margin: auto;
@@ -66,6 +67,7 @@
 
       div {
         background-color: var(--accent-color);
+        border-radius: 2px 0 0 2px;
       }
     }
 
