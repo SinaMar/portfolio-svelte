@@ -1,6 +1,7 @@
 <script lang="ts">
     import {onMount} from "svelte";
     export let name;
+    export let mirrored = false
 
     let sh = '30';
 
@@ -23,9 +24,9 @@
         {name}
     </h1>
 </div>
-<!--<svg height={sh} width={innerWidth} class="triangle">-->
-<!--    <polygon fill="#21242C" points="0,0 {innerWidth},{sh} 0,{sh}" class="triangle2" />-->
-<!--</svg>-->
+<svg height={sh} width={innerWidth} class="triangle">
+    <polygon fill="#21242C" points="0,0 {innerWidth},{sh} 0,{sh}" class="triangle2" />
+</svg>
 
 <div class="section-body">
 
@@ -34,26 +35,11 @@
 </div>
 
 
-
-
-
-
 <style>
-    .t {
-        /*margin-top: 30px;*/
-        margin: 100px;
-        background: #747bff;
-        width: 100%;
-        height: 50px;
-    }
 
     section {
         scroll-margin-top: 4rem;
     }
-    #na {
-        background: #21242C;
-    }
-
 
    a {
        font-size: 32px;
@@ -62,6 +48,7 @@
         position: relative;
        z-index: 1;
     }
+
    a:hover::before {
        width: 100%;
        /*right: 0;*/
@@ -90,22 +77,6 @@
         z-index: -1;
        transition: width .5s, right 0.5s ;
        left: 20%;
-    }
-
-
-
-
-    #hallo {
-        text-decoration: underline;
-        text-decoration-color: white;
-        text-decoration-thickness: 50%;
-        text-decoration-skip-self: inherit;
-        text-underline-offset: 2px;
-    }
-
-    #h {
-        background: #747bff;
-        width: 20px;
     }
 
     .triangle{
@@ -138,17 +109,6 @@
 
     }
 
-    /*#section-body:before {*/
-    /*    content:"";*/
-
-    /*    position:absolute;*/
-    /*    background: white;*/
-    /*    bottom:-25px;*/
-    /*    left: 0;*/
-    /*    height: 50px;*/
-    /*    width: 100%;*/
-    /*    transform: skew(0, -2deg);*/
-    /*}*/
 
     h1 {
         font-family: var(--font-heading);
