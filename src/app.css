@@ -1,8 +1,14 @@
 :root {
 
   --accent-color: #2EB775;
+
   --bg-dark: #21242C;
   --bg: #2A2F39;
+  --bg-light: #3F4450;
+
+  --text-intense: #C9D5EF;
+  --text: #A6B1C8;
+
   --font: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-heading: OtomanopeeOne, "Times New Roman", serif;
 
@@ -40,12 +46,19 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-
+.nowrap {
+  white-space: nowrap;
+}
 
 #app {
   /*max-width: 1280px;*/
@@ -56,6 +69,10 @@ h1 {
 
 * {
   box-sizing: inherit;
+  /*font-family: var(--font); */
+}
+
+p {
   font-family: var(--font);
 }
 
@@ -69,6 +86,22 @@ h1 {
     color: #747bff;
   }
 
+}
+
+/*.backline::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  width: 85%;*/
+/*  height: 70%;*/
+/*  transform: skew(0deg) translateY(30%);*/
+/*  background: var(--bg-dark);*/
+/*  z-index: -1;*/
+/*  left: 20%;*/
+/*}*/
+
+.flex {
+  display: flex;
 }
 
 @font-face {

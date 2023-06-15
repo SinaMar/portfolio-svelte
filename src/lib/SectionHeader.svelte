@@ -1,31 +1,40 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    export let name;
-    export let mirrored = false
 
+    export let name;
+    export let mirrored = false;
+    let sign = mirrored ? -1 : 1;
+    let deg = 2;
     let sh = '30';
 
-
-
     let innerWidth = window.innerWidth;
+    let svg;
+    let svgWidth;
 
-    	onMount(() => {
-    		function onResize() {
-                innerWidth = window.innerWidth;
-    		}
-    		window.addEventListener('resize', onResize);
-    		return () => window.removeEventListener('resize', onResize);
-    	});
+
+    onMount(() => {
+
+        const containerWidth = svg.parentElement.clientWidth + "px";
+        svg.setAttribute('width', containerWidth);
+        function onResize() {
+            svgWidth = svg.parentElement.clientWidth ;
+            svg.setAttribute('width', svgWidth + "px");
+        }
+
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    });
 </script>
 
 <section id={name}></section>
-<div class="section-heading" >
-    <h1>
+<div class="section-heading" style={`transform: rotateZ(${sign * deg}deg)`}>
+    <h1 style={`transform: rotateZ(${-1 * sign * deg}deg); ${mirrored ? 'right' : 'left'}: 20%`} >
         {name}
     </h1>
 </div>
-<svg height={sh} width={innerWidth} class="triangle">
-    <polygon fill="#21242C" points="0,0 {innerWidth},{sh} 0,{sh}" class="triangle2" />
+
+<svg height={sh}  class="triangle" bind:this={svg} style={`transform: scale(${sign},1)`}>
+    <polygon fill="#21242C" points={ `0,0 ${innerWidth},${sh} 0,${sh}` } />
 </svg>
 
 <div class="section-body">
@@ -35,90 +44,43 @@
 </div>
 
 
-<style>
+<style lang="scss">
 
-    section {
-        scroll-margin-top: 4rem;
-    }
+  section {
+    scroll-margin-top: 2rem;
+  }
 
-   a {
-       font-size: 32px;
-       font-weight: bold;
-        /*padding: 30px 0 8px;*/
-        position: relative;
-       z-index: 1;
-    }
+  .section-heading {
 
-   a:hover::before {
-       width: 100%;
-       /*right: 0;*/
-       content: "";
-       position: absolute;
-       /*bottom: 16px;*/
-       bottom: 0;
-       /*width: 100%;*/
-       height: 8px;
-       transform: skew(0deg)   translateY( -20%);
-       background: #2EB775;
-
-       left: 20%;
-   }
-
-   a::before {
-        content: "";
-        position: absolute;
-        /*bottom: 16px;*/
-       bottom: 0;
-        /*width: 100%;*/
-       width: 0;
-        height: 8px;
-        transform: skew(0deg)  translateY( -20%);
-        background: #2EB775;
-        z-index: -1;
-       transition: width .5s, right 0.5s ;
-       left: 20%;
-    }
-
-    .triangle{
-        position: relative;
-        top: 6px;
-    }
-
-    .triangle2{
-        background: white;
-    }
-
-    .section-heading {
-
-        margin-top: 3rem;
-        height: 30px;
-        transform: rotateZ(2deg);
-        /*margin-bottom: 20px;*/
-        position: relative;
-        /*top: -20px;*/
-
-
-        background: #21242C;
-    }
-
-
-    .section-body {
-        padding: 1rem;
-        background: var(--bg-dark);
-        color: white;
-
-    }
-
+    margin-top: 6rem;
+    height: 30px;
+    //transform: rotateZ(2deg);
+    position: relative;
+    background: #21242C;
 
     h1 {
-        font-family: var(--font-heading);
-        transform: rotateZ(-2deg);
-
-        position: absolute;
-        /*text-align: center;*/
-        bottom: 20px;
-        /*z-index: 1;*/
-        right: 20%;
-        margin: 0;
+      font-family: var(--font-heading);
+      //transform: rotateZ(-2deg);
+      position: absolute;
+      text-align: left;
+      bottom: 20px;
+      //left: 20%;
+      margin: 0;
     }
+  }
+
+  .triangle {
+    position: relative;
+    top: 6px;
+  }
+
+  .section-body {
+    padding: 1rem;
+    padding-bottom: 3rem;
+    //padding-top: 3rem;
+    background: var(--bg-dark);
+    color: white;
+  }
+
 </style>
+
