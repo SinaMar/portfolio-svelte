@@ -1,7 +1,4 @@
 <script lang="ts">
-    import pointBg from '../../assets/point-bg.svg'
-    // import screenshot from '../../assets/screenshots/Bundesliga6-1.png'
-
 
     export let mirror = false;
     let sign = mirror ? -1 : 1;
@@ -10,6 +7,7 @@
     export let description: string;
     export let responsibilities: string[];
     export let images: string[] = [];
+    export let techs: string[] = []
 
     let screenshot = `src/assets/screenshots/${images[0]}`
 
@@ -17,11 +15,11 @@
 
 
 <div class="project-container2">
-    <div class="project-bg" style={`transform: skew(${sign * 10}deg)`} class:mirror>
-        <img src={screenshot} class:mirror style={``} alt="screenshot"
-             class="screenshot">
-        <img src={pointBg} alt="pointBg" class:mirror class="point-bg">
-        <div class="content" style={`transform: skew(${sign * -10}deg)`}>
+    {#if !mirror}
+        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">
+    {/if}
+    <div class="project-bg" class:mirror>
+        <div class="content" class:mirror>
             <div>
                 <h2 class="backline">{@html name}</h2>
                 <div class="bl"></div>
@@ -35,65 +33,88 @@
                         <li>{responsibility}</li>
                     {/each}
                 </ul>
+                <div class="techs">
+                    {#each techs as tech}
+                        <img src="src/assets/techs/{tech}.svg" alt={tech}>
+                    {/each}
+                </div>
             </div>
         </div>
+
     </div>
+    {#if mirror}
+        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">
+    {/if}
+
 </div>
 
 
 <style lang="scss">
 
+  .techs {
+    display: flex;
+    gap: 0.5rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--bg-dark);
+      padding: 0.5rem;
+      border-radius: 10px;
+    }
+  }
+
+  .project-container2 {
+    display: flex;
+  }
 
 
   .screenshot {
-    position: absolute;
+    align-self: center;
+    flex-basis: 20%;
+
+    object-fit: contain;
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
     z-index: 1;
-    width: 200px;
-    top: 50%;
-
-    &:not(.mirror) {
-      transform: skew(-10deg) translate(-90%, -50%);
-      left: 0;
-    }
-
-    &.mirror {
-      transform: skew(10deg) translate(90%, -50%);
-      right: 0;
-    }
-
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 
 
-  .point-bg {
-    position: absolute;
-    top: 0;
-
-    &:not(.mirror){
-      transform: skew(-10deg) translate(20%, -25%);
-      right: 0;
-    }
-
-    &.mirror {
-      transform: skew(10deg) translate(-20%, -25%);
-      left: 0;
-    }
-  }
+  //.point-bg {
+  //  position: absolute;
+  //  top: 0;
+  //
+  //  &:not(.mirror) {
+  //    transform: skew(-10deg) translate(20%, -25%);
+  //    right: 0;
+  //  }
+  //
+  //  &.mirror {
+  //    transform: skew(10deg) translate(-20%, -25%);
+  //    left: 0;
+  //  }
+  //}
 
 
   .project-bg {
-    margin-top: 5rem;
-    border-radius: 4px;
     max-width: 900px;
+    border-radius: 4px;
     background-color: var(--bg);
     padding: 3rem;
 
-    border-top: 10px solid var(--accent-color) ;
+    border-top: 10px solid var(--accent-color);
 
     &:not(.mirror) {
-      margin-left: auto;
+      transform: skew(10deg);
     }
+
     &.mirror {
-      margin-right: auto;
+      transform: skew(-10deg);
     }
   }
 
@@ -101,8 +122,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    transform: skew(-10deg);
     text-align: left;
+
+    &:not(.mirror) {
+      transform: skew(-10deg);
+    }
+
+    &.mirror {
+      transform: skew(10deg);
+    }
 
     .backline {
       position: relative;
@@ -125,15 +153,20 @@
       font-weight: bold;
       font-size: 0.625rem;
       margin: 0
+
     }
 
     > div:nth-child(1) {
       flex-basis: 70%;
     }
 
+    > div:nth-child(2) {
+      flex-basis: 100%;
+    }
+
     p {
       font-size: 0.75rem;
-      color: var(--text );
+      color: var(--text);
     }
 
     ul {
@@ -162,12 +195,6 @@
       border-radius: 50%;
     }
 
-    //li::marker {
-    //  content: "•";
-    //  color: var(--accent-color);
-    //  font-size: 1.3rem;
-    //  transform: translateY(-50%);
-    //}
   }
 
 

@@ -36,13 +36,13 @@
 <svelte:window bind:scrollY={y}/>
 
 <p>Some projects I worked on during my career. </p>
-<div class="flex">
+<div class="pasc">
     <div class="project-container">
-        {#each projects as {name, year, description, responsibilities, images}, index}
+        {#each projects as {name, year, description, responsibilities, images, techs}, index}
             <div class="project-nav-target" id={name}></div>
             <div class="project-wrapper">
                 <Project name={name} year={year} description={description}
-                         responsibilities={responsibilities} images={images} mirror={!!(index % 2)}/>
+                         responsibilities={responsibilities} images={images} techs={techs} mirror={!!(index % 2)}/>
             </div>
         {/each}
     </div>
@@ -60,11 +60,20 @@
 
 
 <style lang="scss">
+
+  .pasc {
+    display: flex;
+    justify-content: space-evenly;
+
+  }
+
   .project-container {
-    flex: 1;
-    flex-wrap: wrap;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-right: 20px;
+    margin-left: 30px;
+    //flex: 1;
+    //flex-wrap: wrap;
+    //margin-left: 15%;
+    //margin-right: 15%;
   }
 
   p {
@@ -82,6 +91,7 @@
   aside {
     width: 12rem;
     position: relative;
+    margin-top: 6rem;
 
     ul {
       margin-left: 20%;
