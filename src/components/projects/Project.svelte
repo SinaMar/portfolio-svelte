@@ -1,5 +1,7 @@
 <script lang="ts">
 
+    import Carousel from "../../lib/Carousel.svelte";
+
     export let mirror = false;
     let sign = mirror ? -1 : 1;
     export let name;
@@ -9,6 +11,8 @@
     export let images: string[] = [];
     export let techs: string[] = []
 
+    export let mobile;
+
     let screenshot = `src/assets/screenshots/${images[0]}`
 
 </script>
@@ -16,7 +20,8 @@
 
 <div class="project-container2">
     {#if !mirror}
-        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">
+            <Carousel screenshots={images} mobile={mobile}/>
+<!--        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">-->
     {/if}
     <div class="project-bg" class:mirror>
         <div class="content" class:mirror>
@@ -43,7 +48,9 @@
 
     </div>
     {#if mirror}
-        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">
+        <Carousel screenshots={images}  mobile={mobile}/>
+
+<!--        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">-->
     {/if}
 
 </div>
@@ -66,6 +73,7 @@
 
   .project-container2 {
     display: flex;
+    justify-content: center;
   }
 
 

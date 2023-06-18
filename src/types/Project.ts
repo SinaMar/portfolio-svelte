@@ -6,4 +6,5 @@ export interface Project {
     responsibilities: string[];
     images: string[];
     techs: string[] ;
+    mobile: boolean;
 }

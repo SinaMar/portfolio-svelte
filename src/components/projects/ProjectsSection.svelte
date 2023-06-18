@@ -1,6 +1,6 @@
 <script lang="ts">
     import Project from "./Project.svelte";
-    import {projects} from "../../data/data";
+    import {projects} from "../../data/myData";
     import {onMount} from "svelte";
 
     let y = 0;
@@ -38,10 +38,10 @@
 <p>Some projects I worked on during my career. </p>
 <div class="pasc">
     <div class="project-container">
-        {#each projects as {name, year, description, responsibilities, images, techs}, index}
+        {#each projects as {name, year, description, responsibilities, images, techs, mobile}, index}
             <div class="project-nav-target" id={name}></div>
             <div class="project-wrapper">
-                <Project name={name} year={year} description={description}
+                <Project name={name} year={year} description={description} mobile={mobile}
                          responsibilities={responsibilities} images={images} techs={techs} mirror={!!(index % 2)}/>
             </div>
         {/each}
