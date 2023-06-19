@@ -1,6 +1,6 @@
 <script lang="ts">
     import Skill from "../lib/Skill.svelte";
-    import {workSkills} from "../data/Skills";
+    import {allSkills} from "../data/myData";
     import {Category} from "../types/Skill";
     import workIcon from "../assets/icons/work2.svg"
     import learningIcon from "../assets/icons/learning2.svg"
@@ -9,13 +9,16 @@
     let favFilter: boolean;
     let categories = Object.values(Category);
 
+    let workSkills = allSkills.filter(x => x.workExperience === true);
+    let personalSkills = allSkills.filter(x => x.workExperience === false);
+
     const setFilter = (cat: Category | null) => {
         filter = cat;
     }
 
 </script>
 
-<div class="container">
+<div class="skill-container">
 
 
 <p>Technologies I used at work and for my personal projects.</p>
@@ -40,7 +43,7 @@
     <div>
         <h3><img src={learningIcon} alt="work icon"> Personal Interest</h3>
         <div class="skills">
-            {#each workSkills.filter(x => (!filter || x.category === filter)) as {name, progress, favourite, active} (name)}
+            {#each personalSkills.filter(x => (!filter || x.category === filter)) as {name, progress, favourite, active} (name)}
                 <Skill name={name} progress={progress} fav={favourite} active={active}/>
             {/each}
         </div>
@@ -58,9 +61,10 @@
 
 <style lang="scss">
 
-  .container {
+  .skill-container {
     max-width: 70%;
     margin: auto;
+    min-height: 80vh;
   }
 
   ul {
@@ -80,18 +84,32 @@
     text-align: left;
     font-family: var(--font-heading);
     font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
     img {
       vertical-align: middle;
     }
   }
+  //
+  @media screen and  (min-width: 901px)  {
+    .skills-container {
+      flex-wrap: nowrap;
+    }
+  }
+  @media screen and  (max-width: 900px)  {
+    .skills-container {
+    flex-wrap: wrap;
+    }
+  }
 
   .skills-container {
     //max-width: 70%;
+    //margin: auto;
     display: flex;
     gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    //flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .filter {
@@ -127,9 +145,15 @@
 
 
   .skills {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    //flex-wrap: wrap;
     gap: 2rem;
+     > div {
+       background-color: #2EB775;
+     }
   }
 
 

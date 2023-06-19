@@ -7,7 +7,8 @@
 export const Category = {
     Language: "Language",
     Library: "Library",
-    Tool: "Tool"
+    Tool: "Tool",
+    Software: "Software"
 } as const;
 
 export type CategoryType = typeof Category[keyof typeof Category]
@@ -18,4 +19,5 @@ export interface Skill {
     category: CategoryType;
     favourite: boolean;
     active: boolean;
+    workExperience: boolean;
 }
