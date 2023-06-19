@@ -12,7 +12,7 @@ export const allSkills: Skill[] = [
     createSkill('JavaScript', Category.Language, 50, true),
     createSkill('Html', Category.Language, 80, true),
     createSkill('CSS', Category.Language, 60, true),
-    createSkill('CSharp', Category.Language, 40, true, true),
+    createSkill('C#', Category.Language, 40, true, true),
     createSkill('Python', Category.Language, 20, false),
     createSkill('Java', Category.Language, 20, false),
 
@@ -39,7 +39,7 @@ export const allSkills: Skill[] = [
     createSkill('Atlassian', Category.Tool, 30, true),
 
     // Software
-    createSkill('Webstorm', Category.Software, 30, true),
+    createSkill('WebStorm', Category.Software, 30, true),
     createSkill('Photoshop', Category.Software, 30, true),
     createSkill('Figma', Category.Software, 30, false, true),
     createSkill('Blender', Category.Software, 30, true),
@@ -138,7 +138,7 @@ export const projects: Project[] = [
         "Corerona",
         "2015/2016",
         "An innovative, colorful, sophisticated adventure for smartphones.",
-        ["Unit", "CSharp", "Photoshop", "Blender"],
+        ["Unit", "C#", "Photoshop", "Blender"],
         ["Corerona-1.png", "Corerona-2.png","Corerona-3.png","Corerona-4.png","Corerona-5.png"],
         ["Developing a sports betting portal for the US market from scratch, using a Microfrontend architecture.",
         "Collaborating with international backend teams to align and integrate APIs through contract-based communication.",
