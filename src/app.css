@@ -104,6 +104,15 @@ p {
   display: flex;
 }
 
+.flexCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
 @font-face {
   font-family: 'OtomanopeeOne';
   font-style: normal;
