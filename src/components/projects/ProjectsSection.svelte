@@ -41,8 +41,8 @@
         {#each projects as {name, year, description, responsibilities, images, techs, mobile}, index}
             <div class="project-nav-target" id={name}></div>
             <div class="project-wrapper">
-                <Project name={name} year={year} description={description} mobile={mobile}
-                         responsibilities={responsibilities} images={images} techs={techs} mirror={!!(index % 2)}/>
+                <Project {name} {year} {description} {mobile} {responsibilities} {images} {techs}
+                         mirror={!!(index % 2)}/>
             </div>
         {/each}
     </div>
