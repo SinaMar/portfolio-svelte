@@ -1,64 +1,57 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+    import {onMount} from "svelte";
 
-  export let name;
-  export let mirror = false;
+    export let name;
+    export let mirror = false;
 
-  let innerWidth = window.innerWidth;
-  console.log('innerWidth', innerWidth);
+    let innerWidth = window.innerWidth;
+    console.log('innerWidth', innerWidth);
 
-  let triangleHeight = innerWidth * Math.tan(2 * Math.PI/180);
+    let triangleHeight = innerWidth * Math.tan(2 * Math.PI / 180);
 
-  let svg;
+    let svg;
 
-  const setTriangle = () => {
-    svg.setAttribute("width", svg.parentElement.clientWidth + "px");
-  };
+    const setTriangle = () => {
+        svg.setAttribute("width", svg.parentElement.clientWidth + "px");
+    };
 
-  onMount(() => {
-    setTriangle();
-  });
+    onMount(() => {
+        setTriangle();
+    });
 
-  const onResize = (event) => {
-    setTriangle();
-    innerWidth = window.innerWidth;
-    triangleHeight = innerWidth * Math.tan(2 * Math.PI/180);
-  };
+    const onResize = (event) => {
+        setTriangle();
+        innerWidth = window.innerWidth;
+        triangleHeight = innerWidth * Math.tan(2 * Math.PI / 180);
+    };
 </script>
 
-<svelte:window on:resize={onResize} />
-<section id={name} > </section>
+<svelte:window on:resize={onResize}/>
+<section id={name}></section>
 <div class="section-heading" class:mirror>
-  <h1 class:mirror>
-    {name}
-  </h1>
+    <h1 class:mirror>
+        {name}
+    </h1>
 </div>
 
 
-<div class="section-body-container" >
-  <svg height={triangleHeight} class="triangle" bind:this={svg} class:mirror>
+<svg height={triangleHeight} class="triangle" bind:this={svg} class:mirror>
     <polygon
-      fill="#21242C"
-      points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}
+            fill="#21242C"
+            points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}
     />
-  </svg>
+</svg>
 
-  <div class="section-body">
-      <slot />
-  </div>
+<div class="section-body">
+    <slot/>
 </div>
+
 
 <style lang="scss">
   section {
     scroll-margin-top: 2rem;
   }
 
-  .section-body-container {
-
-    &.offset {
-      transform: translateY(-100px);
-    }
-  }
   .section-heading {
     margin-top: 6rem;
     height: 30px;
@@ -105,5 +98,6 @@
     padding-bottom: 3rem;
     background: var(--bg-dark);
     color: white;
+    //margin-bottom: 16rem;
   }
 </style>
