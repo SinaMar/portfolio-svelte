@@ -7,7 +7,7 @@
 
     let contact: HTMLDivElement;
 
-    let triangleHeight = "30"; // TODO: Calculate based on width
+    let triangleHeight = "30";
 
     let innerWidth = window.innerWidth;
     let svg;
