@@ -2,12 +2,14 @@
     import SectionHeader from "./lib/SectionHeader.svelte";
     import NavBar from "./lib/NavBar.svelte";
     import About from "./sections/About.svelte";
-    import Skills from "./sections/Skills.svelte";
+    import Skills from "./sections/SkillsSection.svelte";
     import CssTest from "./lib/Carousel.svelte";
     import Projects from "./components/projects/ProjectsSection.svelte";
     import Test from "./lib/Carousel.svelte";
     import Test1 from "./lib/Test1.svelte";
     import Test2 from "./lib/Test2.svelte";
+    import Contact from "./lib/Contact.svelte";
+    import ContactSection from "./sections/ContactSection.svelte";
 </script>
 
 <main>
@@ -17,7 +19,7 @@
     <SectionHeader name="Skills">
         <Skills/>
     </SectionHeader>
-    <SectionHeader name="Projects" mirrored>
+    <SectionHeader name="Projects" mirror>
         <Projects/>
     </SectionHeader>
     <SectionHeader name="Interests">
@@ -44,23 +46,18 @@
             laborum nam nemo non officia quis quos reiciendis repudiandae saepe sint. A cum debitis, doloribus ex
             expedita hic id, nam nemo quas quia quo repudiandae vitae voluptate!
         </div>
-    </SectionHeader>
-    <SectionHeader name="Contact" mirrored>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at blanditiis cupiditate
-            deserunt dolore, error exercitationem labore laboriosam nemo nihil quibusdam quo recusandae sunt tenetur
-            ullam unde. Blanditiis id molestiae nesciunt placeat voluptatibus. Accusantium, beatae deserunt, eius ex
-            explicabo fugiat harum id minima odit perferendis perspiciatis porro praesentium rerum sapiente tempora
-            ullam velit? Dicta doloremque esse eveniet fugiat, harum illum, mollitia nihil odio tempora veniam vero,
-            voluptatum! Ab aperiam commodi consectetur delectus dignissimos, ea eligendi eveniet, fuga hic illum labore
-            laboriosam minima minus neque quia quibusdam rem repellat tempore unde, voluptates. Architecto aspernatur
-            dicta excepturi, possimus quas quia repudiandae!
-        </div>
+
     </SectionHeader>
 
+    <ContactSection name='Contact me'/>  
+    <!-- <SectionHeader name="Contact Me" mirror offset>
+        <Contact/>
+    </SectionHeader> -->
 
+
+<!-- 
     <Test1/>
-    <Test2/>
+    <Test2/> -->
     
 
 
