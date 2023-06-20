@@ -1,47 +1,51 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+    import SectionHeader from "./lib/SectionHeader.svelte";
+    import NavBar from "./lib/NavBar.svelte";
+    import About from "./sections/About.svelte";
+    import Skills from "./sections/SkillsSection.svelte";
+    import CssTest from "./lib/Carousel.svelte";
+    import Projects from "./components/projects/ProjectsSection.svelte";
+    import Test from "./lib/Carousel.svelte";
+    import Test1 from "./lib/Test1.svelte";
+    import Test2 from "./lib/Test2.svelte";
+    import Contact from "./lib/Contact.svelte";
+    import ContactSection from "./sections/ContactSection.svelte";
+    import InterestsSection from "./sections/InterestsSection.svelte";
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
 
-  <div class="card">
-    <Counter />
-  </div>
+    <NavBar/>
+    <About/>
+    <SectionHeader name="Skills">
+        <Skills/>
+    </SectionHeader>
+    <SectionHeader name="Projects" mirror>
+        <Projects/>
+    </SectionHeader>
+    <SectionHeader name="Interests">
+        <InterestsSection/>
+    </SectionHeader>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
+    <ContactSection name='Contact'/>
+    <!-- <SectionHeader name="Contact Me" mirror offset>
+        <Contact/>
+    </SectionHeader> -->
 
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+
+<!-- 
+    <Test1/>
+    <Test2/> -->
+    
+
+
+    <!--  <SectionHeader name="Projects"/>-->
+    <!--  <SectionHeader name="Interests"/>-->
+    <!--  <SectionHeader name="Contact"/>-->
 </main>
 
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+<style lang="scss">
+  main {
+    //position: relative;
   }
 </style>
