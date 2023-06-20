@@ -10,6 +10,7 @@
     import Test2 from "./lib/Test2.svelte";
     import Contact from "./lib/Contact.svelte";
     import ContactSection from "./sections/ContactSection.svelte";
+    import InterestsSection from "./sections/InterestsSection.svelte";
 </script>
 
 <main>
@@ -23,33 +24,10 @@
         <Projects/>
     </SectionHeader>
     <SectionHeader name="Interests">
-        <div>
-            asperiores beatae consequatur dicta distinctio excepturi fugit illum, in iusto nisi possimus praesentium
-            quas saepe sapiente, sit! Aliquid, amet architecto atque deserunt dolor, doloremque enim, error est eveniet
-            hic modi repellat sequi voluptas! Adipisci asperiores corporis dignissimos eius ex explicabo fuga id illo
-            illum ipsa, iure iusto maiores minus, neque nesciunt nulla porro quisquam recusandae rem suscipit unde velit
-            voluptate! Commodi cum eveniet harum in ipsum magni nemo praesentium reprehenderit voluptate voluptatibus?
-            Amet aperiam autem est necessitatibus, odio quaerat repudiandae sunt vitae voluptatem. Accusamus animi autem
-            beatae consectetur, consequuntur cupiditate distinctio dolore dolorum ea earum enim est excepturi expedita
-            explicabo harum illum laborum libero minus mollitia necessitatibus nemo nostrum numquam officia officiis
-            pariatur possimus praesentium quia quidem quod quos sapiente tempora temporibus unde? Aperiam illum placeat
-            quod quos vel. Atque, aut beatae commodi ducimus earum error explicabo ipsa ipsam iusto, maiores modi
-            nesciunt nihil porro quod similique ullam unde. Aperiam consequuntur corporis, dignissimos explicabo fuga
-            ipsam labore placeat quidem quis quod suscipit tenetur voluptate voluptatem! Exercitationem, laboriosam,
-            molestias! A architecto assumenda at beatae blanditiis commodi cupiditate delectus distinctio dolor ducimus
-            ea eaque esse eveniet excepturi expedita harum hic incidunt laboriosam laborum minus modi molestiae
-            molestias natus nisi omnis optio, perferendis porro praesentium quas quibusdam quos repudiandae, sunt
-            temporibus ut velit veritatis vitae. Amet aperiam asperiores aut consequuntur cum debitis eum exercitationem
-            harum, maxime, nulla odio quaerat quam, qui sit veritatis. Est impedit modi necessitatibus neque, omnis
-            perferendis quas saepe sequi. A blanditiis commodi corporis cumque deleniti, doloribus impedit minima,
-            neque, pariatur repellat suscipit vero. Hic incidunt inventore sed tempore. Ad, alias eligendi est facere
-            laborum nam nemo non officia quis quos reiciendis repudiandae saepe sint. A cum debitis, doloribus ex
-            expedita hic id, nam nemo quas quia quo repudiandae vitae voluptate!
-        </div>
-
+        <InterestsSection/>
     </SectionHeader>
 
-    <ContactSection name='Contact me'/>  
+    <ContactSection name='Contact'/>
     <!-- <SectionHeader name="Contact Me" mirror offset>
         <Contact/>
     </SectionHeader> -->
