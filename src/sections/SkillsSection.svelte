@@ -65,7 +65,8 @@
   .skill-container {
     width: 60%;
     margin: auto;
-    min-height: 80vh;
+    padding-bottom: 6rem;
+    //min-height: 80vh;
   }
 
   ul {
@@ -73,20 +74,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    // max-width: 70%;
+    margin-bottom: 2rem;
   }
 
   p {
-
-
     left: 20%;
     position: relative;
-
+    width: fit-content;
     text-align: left;
     margin-bottom: 3rem;
     color: var(--text);
+
   }
 
   h3 {
