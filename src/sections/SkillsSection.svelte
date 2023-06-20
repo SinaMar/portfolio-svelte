@@ -18,10 +18,11 @@
 
 </script>
 
+<p>Technologies I used at work and for my personal projects.</p>
+
 <div class="skill-container">
 
 
-<p>Technologies I used at work and for my personal projects.</p>
 
 <ul>
     <li class="filter" class:selected={!filter} on:click={() => {setFilter(null)}}>All</li>
@@ -62,7 +63,7 @@
 <style lang="scss">
 
   .skill-container {
-    max-width: 70%;
+    width: 60%;
     margin: auto;
     min-height: 80vh;
   }
@@ -73,11 +74,19 @@
     flex-direction: row;
     justify-content: space-between;
     margin-block-start: 0;
+    margin-block-end: 0;
+    // max-width: 70%;
   }
 
   p {
+
+
+    left: 20%;
+    position: relative;
+
     text-align: left;
     margin-bottom: 3rem;
+    color: var(--text);
   }
 
   h3 {
@@ -104,15 +113,13 @@
   }
 
   .skills-container {
-    //max-width: 70%;
-    //margin: auto;
     display: flex;
-    gap: 2rem;
-    //flex-wrap: wrap;
-    justify-content: space-evenly;
+    gap: 4rem;
+    justify-content: space-between;
   }
 
   .filter {
+    color: #DFE2EB;
     cursor: pointer;
     font-family: var(--font);
     font-weight: bold;
