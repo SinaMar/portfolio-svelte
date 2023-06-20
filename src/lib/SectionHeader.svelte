@@ -1,86 +1,105 @@
 <script lang="ts">
-    import {onMount} from "svelte";
+  import { onMount } from "svelte";
 
-    export let name;
-    export let mirrored = false;
-    let sign = mirrored ? -1 : 1;
-    let deg = 2;
-    let sh = '30';
+  export let name;
+  export let mirror = false;
+  let triangleHeight = "30"; // TODO: Calculate based on width
 
-    let innerWidth = window.innerWidth;
-    let svg;
-    let svgWidth;
+  let innerWidth = window.innerWidth;
+  let svg;
 
+  const setTriangleWidth = () => {
+    svg.setAttribute("width", svg.parentElement.clientWidth + "px");
+  };
 
-    onMount(() => {
+  onMount(() => {
+    setTriangleWidth();
+  });
 
-        const containerWidth = svg.parentElement.clientWidth + "px";
-        svg.setAttribute('width', containerWidth);
-        function onResize() {
-            svgWidth = svg.parentElement.clientWidth ;
-            svg.setAttribute('width', svgWidth + "px");
-        }
-
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    });
+  const onResize = (event) => {
+    setTriangleWidth();
+    innerWidth = window.innerWidth;
+  };
 </script>
 
-<section id={name}></section>
-<div class="section-heading" style={`transform: rotateZ(${sign * deg}deg)`}>
-    <h1 style={`transform: rotateZ(${-1 * sign * deg}deg); ${mirrored ? 'right' : 'left'}: 20%`} >
-        {name}
-    </h1>
+<svelte:window on:resize={onResize} />
+<section id={name} />
+<div class="section-heading" class:mirror>
+  <h1 class:mirror>
+    {name}
+  </h1>
 </div>
 
-<svg height={sh}  class="triangle" bind:this={svg} style={`transform: scale(${sign},1)`}>
-    <polygon fill="#21242C" points={ `0,0 ${innerWidth},${sh} 0,${sh}` } />
-</svg>
 
-<div class="section-body">
+<div class="section-body-container" >
+  <svg height={triangleHeight} class="triangle" bind:this={svg} class:mirror>
+    <polygon
+      fill="#21242C"
+      points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}
+    />
+  </svg>
 
-    <slot></slot>
-
+  <div class="section-body">
+      <slot />
+  </div>
 </div>
-
 
 <style lang="scss">
-
   section {
     scroll-margin-top: 2rem;
   }
 
-  .section-heading {
+  .section-body-container {
 
+    &.offset {
+      transform: translateY(-100px);
+    }
+  }
+  .section-heading {
     margin-top: 6rem;
     height: 30px;
-    //transform: rotateZ(2deg);
-    position: relative;
-    background: #21242C;
+    background: #21242c;
+
+    &.mirror {
+      transform: rotateZ(-2deg);
+    }
+
+    &:not(.mirror) {
+      transform: rotateZ(2deg);
+    }
 
     h1 {
       font-family: var(--font-heading);
-      //transform: rotateZ(-2deg);
       position: absolute;
       text-align: left;
       bottom: 20px;
-      //left: 20%;
       margin: 0;
+
+      &.mirror {
+        transform: rotateZ(2deg);
+        right: 20%;
+      }
+
+      &:not(.mirror) {
+        transform: rotateZ(-2deg);
+        left: 20%;
+      }
     }
   }
 
   .triangle {
     position: relative;
     top: 6px;
+
+    &.mirror {
+      transform: scale(-1, 1);
+    }
   }
 
   .section-body {
     padding: 1rem;
     padding-bottom: 3rem;
-    //padding-top: 3rem;
     background: var(--bg-dark);
     color: white;
   }
-
 </style>
-
