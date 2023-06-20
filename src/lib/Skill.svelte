@@ -9,7 +9,7 @@
   export let active = false;
   export let progress = 80;
 
-  let logoPath = `src/assets/techs/${name}.svg`;
+  let logoPath = `/assets/techs/${name}.svg`;
 
   let nameText;
 

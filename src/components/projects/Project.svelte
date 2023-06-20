@@ -13,7 +13,8 @@
 
     export let mobile;
 
-    let screenshot = `src/assets/screenshots/${images[0]}`
+    // let screenshot = `src/assets/screenshots/${images[0]}`
+    let screenshot = `/assets/screenshots/${images[0]}`
 
 </script>
 
@@ -21,7 +22,6 @@
 <div class="project-container2">
     {#if !mirror}
             <Carousel screenshots={images} mobile={mobile}/>
-<!--        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">-->
     {/if}
     <div class="project-bg" class:mirror>
         <div class="content" class:mirror>
@@ -40,7 +40,7 @@
                 </ul>
                 <div class="techs">
                     {#each techs as tech}
-                        <img src="src/assets/techs/{tech}.svg" alt={tech}>
+                        <img src='/assets/techs/{tech}.svg' alt={tech}>
                     {/each}
                 </div>
             </div>
@@ -49,8 +49,6 @@
     </div>
     {#if mirror}
         <Carousel screenshots={images}  mobile={mobile}/>
-
-<!--        <img src={screenshot} class:mirror style={``} alt="screenshot" class="screenshot">-->
     {/if}
 
 </div>

@@ -4,7 +4,7 @@
     import Arrow from "./Arrow.svelte";
 
     export let screenshots = [];
-    let images = screenshots.map(x => `src/assets/screenshots/${x}`)
+    let images = screenshots.map(x => `/assets/screenshots/${x}`)
     export let mobile = false;
 
     let pos = 0;
