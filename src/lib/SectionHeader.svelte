@@ -3,27 +3,31 @@
 
   export let name;
   export let mirror = false;
-  let triangleHeight = "30"; // TODO: Calculate based on width
 
   let innerWidth = window.innerWidth;
+  console.log('innerWidth', innerWidth);
+
+  let triangleHeight = innerWidth * Math.tan(2 * Math.PI/180);
+
   let svg;
 
-  const setTriangleWidth = () => {
+  const setTriangle = () => {
     svg.setAttribute("width", svg.parentElement.clientWidth + "px");
   };
 
   onMount(() => {
-    setTriangleWidth();
+    setTriangle();
   });
 
   const onResize = (event) => {
-    setTriangleWidth();
+    setTriangle();
     innerWidth = window.innerWidth;
+    triangleHeight = innerWidth * Math.tan(2 * Math.PI/180);
   };
 </script>
 
 <svelte:window on:resize={onResize} />
-<section id={name} />
+<section id={name} > </section>
 <div class="section-heading" class:mirror>
   <h1 class:mirror>
     {name}
