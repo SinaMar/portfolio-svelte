@@ -23,7 +23,7 @@
             <div class="buttons">
                 <!--                    <button class="primary">Download CV</button>-->
                 <a class="btn primary">Download CV</a>
-                <a class="btn secondary">See Project</a>
+                <a class="btn secondary" href="#Projects">See Project</a>
                 <!--                    <button class="secondary">See Project</button>-->
             </div>
         </div>
@@ -140,6 +140,7 @@
     }
 
     &.secondary {
+      text-decoration: none;
       border: 1px solid var(--accent-color);
       color: var(--accent-color);
     }

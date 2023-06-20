@@ -86,7 +86,7 @@
 
   .triangle {
     position: relative;
-    top: 6px;
+    top: 0.5rem;
 
     &.mirror {
       transform: scale(-1, 1);

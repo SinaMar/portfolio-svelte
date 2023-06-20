@@ -196,7 +196,7 @@
 
   .triangle {
     position: relative;
-    top: 6px;
+    top: 8px;
     transform: scale(-1, 1);
   }
 

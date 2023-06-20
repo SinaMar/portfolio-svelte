@@ -153,7 +153,7 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     //flex-wrap: wrap;
     gap: 2rem;
      > div {
