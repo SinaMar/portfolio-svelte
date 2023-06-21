@@ -1,7 +1,6 @@
 <script lang="ts">
 
-    import {clamp} from "../util";
-    import Arrow from "./Arrow.svelte";
+    import {clamp} from "../../util";
 
     export let screenshots = [];
     let images = screenshots.map(x => `/assets/screenshots/${x}`)

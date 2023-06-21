@@ -2,6 +2,7 @@
     import Project from "./Project.svelte";
     import {projects} from "../../data/myData";
     import {onMount} from "svelte";
+    import Project2 from "./Project2.svelte";
 
     let y = 0;
     let projectDivs: NodeListOf<HTMLDivElement>;
@@ -38,11 +39,10 @@
 <p>Some projects I worked on during my career. </p>
 <div class="pasc">
     <div class="project-container">
-        {#each projects as {name, year, description, responsibilities, images, techs, mobile}, index}
-            <div class="project-nav-target" id={name}></div>
+        {#each projects as project, index}
+            <div class="project-nav-target" id={project.name}></div>
             <div class="project-wrapper">
-                <Project {name} {year} {description} {mobile} {responsibilities} {images} {techs}
-                         mirror={!!(index % 2)}/>
+                <Project2 {project} mirror={!!(index % 2)}/>
             </div>
         {/each}
     </div>
@@ -70,10 +70,6 @@
   .project-container {
     margin-right: 20px;
     margin-left: 30px;
-    //flex: 1;
-    //flex-wrap: wrap;
-    //margin-left: 15%;
-    //margin-right: 15%;
   }
 
   p {

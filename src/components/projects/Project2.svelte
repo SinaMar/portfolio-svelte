@@ -7,33 +7,44 @@
     export let project;
     export let mirror = false;
 
-    const {name,year, description, responsibilities, images , techs, mobile} = project;
+    const {name, year, description, responsibilities, images, techs, mobile} = project;
 
 </script>
 
-§
+
 <div class="project">
-    {#if !mirror}
-        <Carousel screenshots={images} mobile={mobile}/>
-    {/if}
-    <div class="bg" class:mirror>
-        <div class="content" class:mirror>
-            <ProjectDescription {name} {year} {description}/>
-            <ProjectResponsibilities {responsibilities} {techs}/>
-        </div>
+
+<!--    <div class="item"></div>-->
+<!--    <div class="item"></div>-->
+<!--    <div class="item span-all"></div>-->
+
+    <Carousel screenshots={images} mobile={mobile}/>
+    <ProjectDescription {name} {year} {description}/>
+    <div class="res">
+        <ProjectResponsibilities {responsibilities} {techs}/>
     </div>
-    {#if mirror}
-        <Carousel screenshots={images}  mobile={mobile}/>
-    {/if}
+
 </div>
 
 
 <style lang="scss">
 
   .project {
-    display: flex;
-    justify-content: center;
+    width: 70%;
+    margin: auto;
+    background-color: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two rows with automatic height */
+    grid-gap: 10px; /* Gap between grid items */
+
   }
+
+  .res {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+
 
   .bg {
     max-width: 900px;

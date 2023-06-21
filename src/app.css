@@ -12,8 +12,10 @@
   --font: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-heading: OtomanopeeOne, "Times New Roman", serif;
 
+  --skew: 2deg;
 
-  color-scheme: light dark;
+
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--bg);
 
@@ -88,17 +90,6 @@ p {
 
 }
 
-/*.backline::before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  bottom: 0;*/
-/*  width: 85%;*/
-/*  height: 70%;*/
-/*  transform: skew(0deg) translateY(30%);*/
-/*  background: var(--bg-dark);*/
-/*  z-index: -1;*/
-/*  left: 20%;*/
-/*}*/
 
 .flex {
   display: flex;
@@ -111,6 +102,21 @@ p {
 
 .flexCol {
   flex-direction: column;
+}
+.text-underline {
+  position: relative;
+  width: min-content;
+}
+
+.text-underline::after {
+  content: "";
+  position: relative;
+  width: 100%;
+  display: block;
+  height: 1em;
+  transform: translate(20%, -0.75em);
+  background: var(--bg-dark);
+  z-index: -1;
 }
 
 @font-face {
