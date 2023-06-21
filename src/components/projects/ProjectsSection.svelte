@@ -90,7 +90,6 @@
     margin-top: 6rem;
 
     ul {
-      margin-left: 20%;
       list-style: none;
       position: sticky;
       padding-left: 1rem;

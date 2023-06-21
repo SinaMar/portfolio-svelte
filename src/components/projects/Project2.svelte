@@ -13,15 +13,14 @@
 
 
 <div class="project">
-
-<!--    <div class="item"></div>-->
-<!--    <div class="item"></div>-->
-<!--    <div class="item span-all"></div>-->
-
-    <Carousel screenshots={images} mobile={mobile}/>
-    <ProjectDescription {name} {year} {description}/>
-    <div class="res">
-        <ProjectResponsibilities {responsibilities} {techs}/>
+    <div class="border">
+        <div class="content">
+            <Carousel screenshots={images} mobile={mobile}/>
+            <ProjectDescription {name} {year} {description}/>
+            <div class="responsibilities">
+                <ProjectResponsibilities {responsibilities} {techs}/>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -30,51 +29,29 @@
 <style lang="scss">
 
   .project {
+    position: relative;
     width: 70%;
     margin: auto;
+  }
+
+  .border {
+    border: 30px solid transparent;
+    border-image: url('/assets/border.svg') 10 stretch;
+  }
+
+  .content {
+    padding: 2rem;
     background-color: var(--bg);
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two rows with automatic height */
-    grid-gap: 10px; /* Gap between grid items */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
 
   }
 
-  .res {
+  .responsibilities {
     grid-column: 1 / -1;
     text-align: left;
   }
 
-
-
-  .bg {
-    max-width: 900px;
-    border-radius: 4px;
-    background-color: var(--bg);
-    padding: 3rem;
-    border-top: 10px solid var(--accent-color);
-
-    &:not(.mirror) {
-      transform: skew(10deg);
-    }
-
-    &.mirror {
-      transform: skew(-10deg);
-    }
-  }
-
-  .content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-align: left;
-
-    &:not(.mirror) {
-      transform: skew(-10deg);
-    }
-
-    &.mirror {
-      transform: skew(10deg);
-    }
-  }
 
 </style>

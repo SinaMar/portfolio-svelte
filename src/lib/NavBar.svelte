@@ -107,7 +107,7 @@
         position: fixed;
         right: 0;
         top: 0;
-        z-index: 10;
+        z-index: 20;
 
     }
 
@@ -125,7 +125,7 @@
 
     #nav-container {
         position: sticky;
-        z-index: 10;
+        z-index: 20;
         top: 0;
         /*margin-top: 2rem;*/
         display: flex;

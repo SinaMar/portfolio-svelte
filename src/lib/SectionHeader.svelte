@@ -1,8 +1,10 @@
 <script lang="ts">
     import {onMount} from "svelte";
+    import deco from '../assets/deco2.svg';
 
     export let name;
     export let mirror = false;
+    const deg = 2;
 
     let innerWidth = window.innerWidth;
     console.log('innerWidth', innerWidth);
@@ -29,12 +31,17 @@
 <svelte:window on:resize={onResize}/>
 <section id={name}></section>
 <div class="section-heading" class:mirror>
+    <img src={deco} alt="" class="deco heading-top">
+
     <h1 class:mirror>
         {name}
     </h1>
+    <img src={deco} alt="" class="deco heading-bottom">
+
 </div>
 
-
+<img src={deco} alt="" class="deco"
+     style={`transform: rotate(${mirror ? -deg : deg}deg) translateY(${triangleHeight}px);`} >
 <svg height={triangleHeight} class="triangle" bind:this={svg} class:mirror>
     <polygon
             fill="#21242C"
@@ -48,6 +55,18 @@
 
 
 <style lang="scss">
+
+  .deco{
+
+    width: 100%;
+
+    &.heading-top {
+      transform: translateY(-50%);
+    }
+    &.heading-bottom {
+      transform: translateY(-50%) scale(-1,-1);
+    }
+  }
   section {
     scroll-margin-top: 2rem;
   }
