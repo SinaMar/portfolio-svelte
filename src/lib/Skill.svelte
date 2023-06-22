@@ -4,6 +4,7 @@
   import heart from "../assets/icons/heart.svg";
   import forward from "../assets/icons/forward.svg";
 
+  export let grey = false;
   export let name = "Vite";
   export let fav = false;
   export let active = false;
@@ -14,17 +15,28 @@
   let nameText;
 
   onMount(() => {
-  
+
+    console.log('fs',window.getComputedStyle(nameText).fontSize);
+
     while (nameText.scrollWidth >= 62) {
             const fontSize = parseInt(
                 window.getComputedStyle(nameText).fontSize
             );
-            nameText.style.fontSize = `${fontSize - 1}px`;
+            nameText.style.fontSize = `${ (fontSize - 1)/16}rem`;
         }
   });
+
+
+  //------
+
+
+
+
 </script>
 
-<div class="skill-container">
+<div class="skill"  class:grey
+
+>
   {#if fav}
     <img src={heart} alt="heart" class="heart" />
   {/if}
@@ -36,7 +48,7 @@
   </div>
 
   <div class="progress-bg">
-    <div class="progress" style="width: {progress}%" />
+    <div class="progress" style="width: {progress}%" > </div>
     {#if active}
       <img src={forward} alt="active" class="forward" />
     {/if}
@@ -44,8 +56,37 @@
 </div>
 
 <style lang="scss">
+  .skill{
+
+    width: min-content;
+    text-align: center;
+    position: relative;
+    transition: 0.4s;
+
+    .progress-bg {
+      height: 0.5rem;
+      width: 100%;
+      border-radius: 2px;
+      background-color: var(--bg-light);
+    }
+
+    .progress {
+      background-color: var(--accent-color);
+      border-radius: 2px 0 0 2px;
+      position: relative;
+      text-align: center;
+      height: 100%;
+    }
+  }
+  .grey {
+    filter: grayscale(1) blur(1px);
+    opacity: 0.2;
+    transition: 0.4s;
+  }
+
   .container {
     // border: 1px solid black;
+
     overflow: hidden;
     height: 1.5rem;
     display: flex;
@@ -64,32 +105,14 @@
     }
   }
 
-  .skill-container {
-    width: min-content;
-    text-align: center;
-    position: relative;
 
-    .progress-bg {
-      height: 0.5rem;
-      width: 100%;
-      border-radius: 2px;
-      background-color: var(--bg-light);
-    }
-
-    .progress {
-      background-color: var(--accent-color);
-      border-radius: 2px 0 0 2px;
-      position: relative;
-      text-align: center;
-      height: 100%;
-    }
-  }
 
   .heart {
     position: absolute;
     right: 0;
     top: 0;
     transform: translate(20%, -20%);
+    width: 1rem;
   }
 
   .tech-logo {
@@ -104,6 +127,7 @@
 
   .forward {
     position: absolute;
+    width: 0.5rem;
     right: 0;
     bottom: 0;
     transform: translateX(100%) translateX(0.25rem) translateY(0%);

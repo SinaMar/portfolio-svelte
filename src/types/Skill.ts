@@ -5,9 +5,9 @@
 // }
 
 export const Category = {
-    Language: "Language",
-    Library: "Library",
-    Tool: "Tool",
+    Language: "Languages",
+    Library: "Frameworks & Libraries",
+    Tool: "Tools",
     Software: "Software"
 } as const;
 

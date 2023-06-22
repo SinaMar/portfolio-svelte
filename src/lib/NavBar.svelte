@@ -36,9 +36,9 @@
 
         offset = navbar.offsetTop + 20;
         sections = document.querySelectorAll("section");
-        sections.forEach( x => {
+        sections.forEach(x => {
             //TODO: window.innerHeight dynamic, since it can change
-            sectionMap[x.getAttribute("id")] = x.offsetTop - (window.innerHeight/2);
+            sectionMap[x.getAttribute("id")] = x.offsetTop - (window.innerHeight / 2);
         })
         console.log(sections);
         // navLi = document.querySelectorAll("nav #nav-content a");
@@ -62,22 +62,24 @@
 
 
     $: sticky = y >= offset;
-    // $: about = y >= 100 && y <= 500;
+    let navItems = ['Skills', 'Interests', 'Projects', 'Contact']
 
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y}/>
 
-<!--<div bind:this={target} class="target"></div>-->
 <div id="nav-container" class="desktop">
     <img src={Logo} style={  `height: ${sticky ? 30 : 60}px`} class="logo" alt="Logo"/>
     <nav id="navbar" bind:this={navbar} class:sticky>
         <div id="nav-content">
-            <a href="#" class:active={ y < sectionMap['Skills']}>.About</a>
-            <a href="#Skills" class:active={y >= sectionMap['Skills']  && y < sectionMap['Projects']}>.Skills</a>
-            <a href="#Projects" class:active={y >= sectionMap['Projects'] && y < sectionMap['Interests']}>.Projects</a>
-            <a href="#Interests" class:active={y >= sectionMap['Interests'] && y < sectionMap['Contact']}>.Interests</a>
-            <a href="#Contact" class:active={y >= sectionMap['Contact'] }>.Contact</a>
+            <a href="#" class:active={ y < sectionMap[navItems[0]]}>.About</a>
+            {#each navItems as item, i }
+                {#if i < navItems.length - 1}
+                    <a href="#{item}" class:active={y >= sectionMap[item]  && y < sectionMap[navItems[i+1]]}>.{item}</a>
+                {:else}
+                    <a href="#{item}" class:active={y >= sectionMap[item]}>.{item}</a>
+                {/if}
+            {/each}
         </div>
 
     </nav>
@@ -107,7 +109,7 @@
         position: fixed;
         right: 0;
         top: 0;
-        z-index: 10;
+        z-index: 20;
 
     }
 
@@ -125,7 +127,7 @@
 
     #nav-container {
         position: sticky;
-        z-index: 10;
+        z-index: 20;
         top: 0;
         /*margin-top: 2rem;*/
         display: flex;

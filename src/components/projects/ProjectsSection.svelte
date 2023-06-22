@@ -2,6 +2,7 @@
     import Project from "./Project.svelte";
     import {projects} from "../../data/myData";
     import {onMount} from "svelte";
+    import Project2 from "./Project2.svelte";
 
     let y = 0;
     let projectDivs: NodeListOf<HTMLDivElement>;
@@ -36,13 +37,12 @@
 <svelte:window bind:scrollY={y}/>
 
 <p>Some projects I worked on during my career. </p>
-<div class="pasc">
+<div class="projects-section">
     <div class="project-container">
-        {#each projects as {name, year, description, responsibilities, images, techs, mobile}, index}
-            <div class="project-nav-target" id={name}></div>
+        {#each projects as project, index}
+            <div class="project-nav-target" id={project.name}></div>
             <div class="project-wrapper">
-                <Project {name} {year} {description} {mobile} {responsibilities} {images} {techs}
-                         mirror={!!(index % 2)}/>
+                <Project2 {project} mirror={!!(index % 2)}/>
             </div>
         {/each}
     </div>
@@ -61,26 +61,21 @@
 
 <style lang="scss">
 
-  .pasc {
+  .projects-section {
     display: flex;
     justify-content: space-evenly;
-
   }
 
   .project-container {
     margin-right: 20px;
     margin-left: 30px;
-    //flex: 1;
-    //flex-wrap: wrap;
-    //margin-left: 15%;
-    //margin-right: 15%;
   }
 
   p {
     color: var(--text);
-    text-align: right;
+    text-align: left;
     position: absolute;
-    right: 20%;
+    left: 20%;
   }
 
   .project-wrapper {
@@ -92,9 +87,9 @@
     width: 12rem;
     position: relative;
     margin-top: 6rem;
+    padding-right: 3rem;
 
     ul {
-      margin-left: 20%;
       list-style: none;
       position: sticky;
       padding-left: 1rem;

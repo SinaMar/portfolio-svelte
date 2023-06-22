@@ -18,22 +18,25 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
+
   }
 
   .icon {
     display: flex;
-    width: 80px;
-    height: 80px;
-    border-radius: 50rem;
+    width: 5rem;
+    height: 5rem;
+    //height: 80px;
+    aspect-ratio: 1;
+    border-radius: 50%;
     background-color: var(--accent-color);
     justify-content: center;
+    align-items: center;
+    position: relative;
+    img {
+      width: 3rem;
+      height: 3rem;
+    }
 
-  }
-
-  img {
-    padding: 1rem;
-
-    //margin: auto;
   }
 
   p {

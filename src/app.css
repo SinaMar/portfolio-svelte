@@ -1,6 +1,6 @@
 :root {
 
-  --accent-color: #2EB775;
+  --accent-color: #2eb775;
 
   --bg-dark: #21242C;
   --bg: #2A2F39;
@@ -12,8 +12,10 @@
   --font: Lato, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-heading: OtomanopeeOne, "Times New Roman", serif;
 
+  --skew: 2deg;
 
-  color-scheme: light dark;
+
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--bg);
 
@@ -44,6 +46,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  font-size: 0.8vw;
+
 }
 
 h1, h2, h3, h4 {
@@ -52,7 +56,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 }
 
@@ -88,17 +92,6 @@ p {
 
 }
 
-/*.backline::before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  bottom: 0;*/
-/*  width: 85%;*/
-/*  height: 70%;*/
-/*  transform: skew(0deg) translateY(30%);*/
-/*  background: var(--bg-dark);*/
-/*  z-index: -1;*/
-/*  left: 20%;*/
-/*}*/
 
 .flex {
   display: flex;
@@ -113,10 +106,32 @@ p {
   flex-direction: column;
 }
 
+
+.text-underline::after {
+  content: "";
+  position: relative;
+  width: 100%;
+  display: block;
+  height: 1em;
+  z-index: -1;
+  transform: translate(20%, -0.75em);
+  background: var(--bg-dark);
+}
+
+.text-underline--darker::after {
+  background: hsla(224, 14%, 10%, 1);
+}
+
+.text-underline {
+  position: relative;
+  width: fit-content;
+  z-index: 0;
+}
 @font-face {
   font-family: 'OtomanopeeOne';
   font-style: normal;
   font-weight: 400;
+  /*noinspection CssUnknownTarget*/
   src: local('OtomanopeeOne Regular'), local('OtomanopeeOne-Regular'), url('/OtomanopeeOne-Regular.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -125,6 +140,7 @@ p {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
+  /*noinspection CssUnknownTarget*/
   src: local('Lato Regular'), local('Lato-Regular'), url('/Lato-Regular.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -133,6 +149,7 @@ p {
   font-family: 'Lato';
   font-style: normal;
   font-weight: bold;
+  /*noinspection CssUnknownTarget*/
   src: local('Lato Semibold'), local('Lato-Semibold'), url('/Lato-Semibold.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

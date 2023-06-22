@@ -18,8 +18,11 @@
 
 <style lang="scss">
     .interests {
+      padding: 2rem;
       display: flex;
       gap: 3rem;
-      justify-content: center;
+      width: 60%;
+      justify-content: space-between;
+      margin: auto;
     }
 </style>

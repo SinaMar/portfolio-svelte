@@ -1,6 +1,5 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import Flex from "../lib/Flex.svelte";
     import CTAButton from "../lib/CTAButton.svelte";
 
     export let name;
@@ -85,8 +84,7 @@
     position: relative;
     width: 60%;
     margin: auto;
-    // height: 300px;
-    // height: 100%;
+
     margin-top: 2rem;
     z-index: 10;
     display: flex;
@@ -173,9 +171,10 @@
     z-index: -10;
   }
 
-  section {
-    scroll-margin-top: 2rem;
+  section  {
+    scroll-margin-top: 8rem;
   }
+
 
   .section-heading {
     margin-top: 6rem;
@@ -201,8 +200,6 @@
   }
 
   .section-body {
-    // padding: 1rem;
-    // padding-bottom: 3rem;
     background: var(--bg-dark);
     color: white;
     z-index: -10;
