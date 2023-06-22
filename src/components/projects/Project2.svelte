@@ -35,7 +35,7 @@
   }
 
   .border {
-    border: 30px solid transparent;
+    border: 2rem solid transparent;
     border-image: url('/assets/border.svg') 10 stretch;
   }
 
@@ -44,7 +44,7 @@
     background-color: var(--bg);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 0.5rem;
 
   }
 

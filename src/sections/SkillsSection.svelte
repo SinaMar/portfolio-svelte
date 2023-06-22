@@ -59,7 +59,7 @@
 
     <div class="skills-container">
         <div>
-            <h3><img src={workIcon} alt="work icon"> Work Experience</h3>
+            <h3 class="text-underline text-underline--darker" ><img src={workIcon} alt="work icon">   Work Experience</h3>
             <div class="skills">
                 {#each sortedWorkSkills as {name, progress, favourite, active, category} (name)}
                     <div animate:flip="{{duration: 500}}">
@@ -71,7 +71,7 @@
         </div>
 
         <div>
-            <h3><img src={learningIcon} alt="work icon"> Personal Interest</h3>
+            <h3 class="text-underline text-underline--darker" ><img src={learningIcon} alt="work icon"> Personal Interest</h3>
             <div class="skills">
                 {#each sortedPersonalSkills as {name, progress, favourite, active, category} (name)}
                     <div animate:flip="{{duration: 500}}">
@@ -113,8 +113,8 @@
     }
     img {
       vertical-align:middle;
-      line-height: 0.75rem;
-      height: 0.75rem;
+      line-height: 0.5rem;
+      height: 0.5rem;
       margin-right: 0.5rem;
     }
   }
@@ -124,7 +124,6 @@
     margin: auto;
     padding-bottom: 6rem;
     min-height: 80vh;
-    transition: 2s;
   }
 
   ul {
@@ -154,6 +153,7 @@
 
     img {
       vertical-align: middle;
+      height: 1em;
     }
   }
 
@@ -212,9 +212,9 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     //flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
 
     > div {
       background-color: transparent;

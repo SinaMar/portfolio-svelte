@@ -1,8 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import {crossfade, fade, fly, slide} from 'svelte/transition';
-  import { flip } from 'svelte/animate';
-  import {quintOut} from "svelte/easing";
 
   import heart from "../assets/icons/heart.svg";
   import forward from "../assets/icons/forward.svg";
@@ -15,15 +12,24 @@
 
   let logoPath = `/assets/techs/${name}.svg`;
 
-  let nameText;
+  let nameText: HTMLDivElement;
+  let placeholder: HTMLDivElement;
 
   onMount(() => {
-  
-    while (nameText.scrollWidth >= 62) {
+
+
+
+    let currentFontSize = window.getComputedStyle(placeholder).lineHeight;
+    // let currentFontSize = placeholder.clientHeight;
+    // console.log('currentFontSize', currentFontSize);
+    // console.log(`${name} height`, nameText.clientHeight);
+
+    while (nameText.scrollWidth >= 62 ) {
             const fontSize = parseInt(
                 window.getComputedStyle(nameText).fontSize
             );
-            nameText.style.fontSize = `${fontSize - 1}px`;
+          // console.log('fs', fontSize);
+            nameText.style.fontSize = `${ (fontSize - 1)/16}rem`;
         }
   });
 
@@ -45,6 +51,7 @@
   <div class="container">
     <div  class="text-container" >
       <span bind:this={nameText}>{name}</span>
+      <span style="display: none" bind:this={placeholder}>a</span>
     </div>
   </div>
 
@@ -57,12 +64,15 @@
 </div>
 
 <style lang="scss">
+
+
+
   .skill{
 
     width: min-content;
     text-align: center;
     position: relative;
-    transition: 0.4;
+    transition: 0.4s;
 
     .progress-bg {
       height: 0.5rem;
@@ -96,14 +106,16 @@
   }
 
   .text-container {
-  
-    span {
+    white-space: nowrap;
+    span{
       display: block;
       margin: 0;
       font-family: var(--font);
       font-size: 1rem;
       color: hsl(220, 100%, 98%, 80%);
     }
+
+
   }
 
 
@@ -113,6 +125,7 @@
     right: 0;
     top: 0;
     transform: translate(20%, -20%);
+    width: 1rem;
   }
 
   .tech-logo {
@@ -127,6 +140,7 @@
 
   .forward {
     position: absolute;
+    width: 0.5rem;
     right: 0;
     bottom: 0;
     transform: translateX(100%) translateX(0.25rem) translateY(0%);
