@@ -17,10 +17,10 @@
         pos = clamp(pos + 1, 0, size - 1);
     }
 
-    let margin = 10;
-    let gap = 60;
-    let imgWidth = mobile ? 200 : 300;
-    let boxHeight = mobile ? 400 : 200;
+    let margin = 0.5;
+    let gap = 4;
+    let imgWidth = mobile ? 12.5 : 18.75;
+    let boxHeight = mobile ? 25 : 12.5;
 
 </script>
 
@@ -28,17 +28,17 @@
     <div class="container">
         <button on:click={leftClick}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" width="16px" height="16px" class="w-6 h-6">
+                 stroke="currentColor" width="1rem" height="1rem" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
                       d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
 
         </button>
-        <div class="box" style:width='{imgWidth + gap}px' style:height='{boxHeight}px'>
+        <div class="box" style:width='{imgWidth + gap}rem' style:height='{boxHeight}rem'>
             <div class="image-container"
-                 style={`transform: translateX( -${pos * imgWidth   - ((gap / 2 - margin) - (pos-1) * margin)}px);`}>
+                 style={`transform: translateX( -${pos * imgWidth   - ((gap / 2 - margin) - (pos-1) * margin)}rem);`}>
                 {#each images as image}
-                    <div class="image" style:width='{imgWidth}px'>
+                    <div class="image" style:width='{imgWidth}rem'>
                         <img src={image} alt="">
                     </div>
 
@@ -47,7 +47,7 @@
             </div>
         </div>
         <button on:click={rightClick}>
-            <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <svg width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke-width="1.5" class="w-6 h-6" >
                 <path stroke-linecap="round" stroke-linejoin="round"
                       d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -57,7 +57,7 @@
     </div>
     <div class="flex">
         {#each images as img, index}
-            <button class="circle" on:click={() => {pos = index}} class:active={pos === index}></button>
+            <div class="circle" on:click={() => {pos = index}} class:active={pos === index}></div>
         {/each}
     </div>
 </div>
@@ -85,10 +85,10 @@
 
   .circle {
     cursor: pointer;
-    margin: 8px;
-    width: 16px;
-    height: 16px;
-    border-radius: 32px;
+    margin: 0.5rem;
+    width: 1rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
     background-color: var(--bg-light);
 
     &.active {
@@ -128,12 +128,12 @@
   }
 
   .image:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 0.5rem;
   }
 
 
   img {
-    width: 400px;
+    width: 25rem;
   }
 
 

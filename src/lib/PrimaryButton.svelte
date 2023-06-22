@@ -21,6 +21,8 @@
     cursor: pointer;
     isolation: isolate;
     overflow: hidden;
+    font-size: 1rem;
+    font-weight: bold;
 
     &.secondary {
       background: transparent;

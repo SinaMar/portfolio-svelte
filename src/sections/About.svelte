@@ -11,7 +11,7 @@
 <div class="about-container">
     <div class="about">
         <div>
-            <h2>Hey there,<img src={HandWaveIcon} alt="HandWave Icon"/></h2>
+            <h2>Hey there,<img src={HandWaveIcon} alt="HandWave Icon"  class="handWaveIcon"/></h2>
             <h1>I’m <span>Sina</span></h1>
             <h1 class="backline">Frontend Developer</h1>
             <p>I'm a dedicated Frontend Developer crafting outstanding websites. I stay updated with the latest
@@ -31,11 +31,19 @@
             </div>
         </div>
     </div>
-    <img src={Portrait} alt="Logo" height="280px"/>
+    <img src={Portrait} alt="Logo"  class="portrait"/>
 </div>
 
 
 <style lang="scss">
+
+  .handWaveIcon {
+  width: 5rem;
+  }
+
+  .portrait {
+    height: 25rem;
+  }
 
   .about-container {
     column-gap: 12.5rem;
@@ -113,7 +121,6 @@
     justify-content: right;
   }
 
-  *,
   *:before,
   *:after {
     transition: 0.3s ease-in-out;

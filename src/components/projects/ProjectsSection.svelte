@@ -87,6 +87,7 @@
     width: 12rem;
     position: relative;
     margin-top: 6rem;
+    padding-right: 3rem;
 
     ul {
       list-style: none;

@@ -1,8 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import {crossfade, fade, fly, slide} from 'svelte/transition';
-  import { flip } from 'svelte/animate';
-  import {quintOut} from "svelte/easing";
 
   import heart from "../assets/icons/heart.svg";
   import forward from "../assets/icons/forward.svg";
@@ -18,12 +15,14 @@
   let nameText;
 
   onMount(() => {
-  
+
+    console.log('fs',window.getComputedStyle(nameText).fontSize);
+
     while (nameText.scrollWidth >= 62) {
             const fontSize = parseInt(
                 window.getComputedStyle(nameText).fontSize
             );
-            nameText.style.fontSize = `${fontSize - 1}px`;
+            nameText.style.fontSize = `${ (fontSize - 1)/16}rem`;
         }
   });
 
@@ -62,7 +61,7 @@
     width: min-content;
     text-align: center;
     position: relative;
-    transition: 0.4;
+    transition: 0.4s;
 
     .progress-bg {
       height: 0.5rem;
@@ -113,6 +112,7 @@
     right: 0;
     top: 0;
     transform: translate(20%, -20%);
+    width: 1rem;
   }
 
   .tech-logo {
@@ -127,6 +127,7 @@
 
   .forward {
     position: absolute;
+    width: 0.5rem;
     right: 0;
     bottom: 0;
     transform: translateX(100%) translateX(0.25rem) translateY(0%);
