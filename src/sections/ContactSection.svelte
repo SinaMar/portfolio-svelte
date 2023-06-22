@@ -171,9 +171,10 @@
     z-index: -10;
   }
 
-  section {
-    scroll-margin-top: 2rem;
+  section  {
+    scroll-margin-top: 8rem;
   }
+
 
   .section-heading {
     margin-top: 6rem;

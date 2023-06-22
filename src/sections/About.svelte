@@ -1,6 +1,7 @@
 <script lang="ts">
     import Portrait from '../assets/Portrait.png'
     import HandWaveIcon from '../assets/icons/handwave.svg'
+    import PrimaryButton from "../lib/PrimaryButton.svelte";
 </script>
 
 
@@ -22,8 +23,10 @@
             </p>
             <div class="buttons">
                 <!--                    <button class="primary">Download CV</button>-->
-                <a class="btn primary">Download CV</a>
-                <a class="btn secondary" href="#Projects">See Project</a>
+<!--                <a class="btn primary">Download CV</a>-->
+                <PrimaryButton> Download CV </PrimaryButton>
+                <PrimaryButton secondary> See Projects</PrimaryButton>
+<!--                <a class="btn secondary" href="#Projects">See Project</a>-->
                 <!--                    <button class="secondary">See Project</button>-->
             </div>
         </div>

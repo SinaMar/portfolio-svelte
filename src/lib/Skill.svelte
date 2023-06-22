@@ -1,9 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import {crossfade, fade, fly, slide} from 'svelte/transition';
+  import { flip } from 'svelte/animate';
+  import {quintOut} from "svelte/easing";
 
   import heart from "../assets/icons/heart.svg";
   import forward from "../assets/icons/forward.svg";
 
+  export let grey = false;
   export let name = "Vite";
   export let fav = false;
   export let active = false;
@@ -22,9 +26,18 @@
             nameText.style.fontSize = `${fontSize - 1}px`;
         }
   });
+
+
+  //------
+
+
+
+
 </script>
 
-<div class="skill-container">
+<div class="skill"  class:grey
+
+>
   {#if fav}
     <img src={heart} alt="heart" class="heart" />
   {/if}
@@ -36,7 +49,7 @@
   </div>
 
   <div class="progress-bg">
-    <div class="progress" style="width: {progress}%" />
+    <div class="progress" style="width: {progress}%" > </div>
     {#if active}
       <img src={forward} alt="active" class="forward" />
     {/if}
@@ -44,8 +57,37 @@
 </div>
 
 <style lang="scss">
+  .skill{
+
+    width: min-content;
+    text-align: center;
+    position: relative;
+    transition: 0.4;
+
+    .progress-bg {
+      height: 0.5rem;
+      width: 100%;
+      border-radius: 2px;
+      background-color: var(--bg-light);
+    }
+
+    .progress {
+      background-color: var(--accent-color);
+      border-radius: 2px 0 0 2px;
+      position: relative;
+      text-align: center;
+      height: 100%;
+    }
+  }
+  .grey {
+    filter: grayscale(1) blur(1px);
+    opacity: 0.2;
+    transition: 0.4s;
+  }
+
   .container {
     // border: 1px solid black;
+
     overflow: hidden;
     height: 1.5rem;
     display: flex;
@@ -64,26 +106,7 @@
     }
   }
 
-  .skill-container {
-    width: min-content;
-    text-align: center;
-    position: relative;
 
-    .progress-bg {
-      height: 0.5rem;
-      width: 100%;
-      border-radius: 2px;
-      background-color: var(--bg-light);
-    }
-
-    .progress {
-      background-color: var(--accent-color);
-      border-radius: 2px 0 0 2px;
-      position: relative;
-      text-align: center;
-      height: 100%;
-    }
-  }
 
   .heart {
     position: absolute;

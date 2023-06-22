@@ -4,6 +4,10 @@
     import {Category} from "../types/Skill";
     import workIcon from "../assets/icons/work2.svg"
     import learningIcon from "../assets/icons/learning2.svg"
+    import heartIcon from "../assets/icons/heart.svg";
+    import forwardIcon from "../assets/icons/forward.svg";
+    import {flip} from 'svelte/animate';
+
 
     let filter: Category | null = null;
     let favFilter: boolean;
@@ -12,46 +16,75 @@
     let workSkills = allSkills.filter(x => x.workExperience === true);
     let personalSkills = allSkills.filter(x => x.workExperience === false);
 
+    function compareFn(a, b) {
+        if (b.category !== filter && a.category === filter) {
+            return -1;
+        }
+        if (a.category === filter && b.category !== filter) {
+            return 1;
+        }
+        return 0;
+    }
+
+    $: sortedWorkSkills = filter ? workSkills.sort((a, b) => b.progress - a.progress).sort(compareFn) : workSkills.sort((a, b) => b.progress - a.progress);
+    $: sortedPersonalSkills = filter ? personalSkills.sort((a, b) => b.progress - a.progress).sort(compareFn) : personalSkills.sort((a, b) => b.progress - a.progress);
+
     const setFilter = (cat: Category | null) => {
         filter = cat;
     }
 
-</script>
 
-<p>Technologies I used at work and for my personal projects.</p>
+</script>
+<div class="section-description">
+    <div>Technologies I used at work and for my personal projects.</div>
+    <div>
+        <img src={forwardIcon} alt="forward">  currently active using and learning
+    </div>
+    <div>
+        <img src={heartIcon} alt="heart"> just fell in love with
+    </div>
+</div>
+
 
 <div class="skill-container">
 
 
+    <ul>
+        <li class="filter" class:selected={!filter} on:click={() => {setFilter(null)}}>All</li>
+        {#each categories as category }
+            <li class="filter" class:selected={filter === category}
+                on:click={() => {setFilter(category)}}>{category}</li>
+        {/each}
+    </ul>
 
-<ul>
-    <li class="filter" class:selected={!filter} on:click={() => {setFilter(null)}}>All</li>
-    {#each categories as category }
-        <li class="filter" class:selected={filter === category} on:click={() => {setFilter(category)}}>{category}</li>
-    {/each}
-</ul>
-
-<div class="skills-container">
-    <div>
-        <h3><img src={workIcon} alt="work icon"> Work Experience</h3>
-        <div class="skills">
-            {#each workSkills.filter(x => (!filter || x.category === filter)) as {name, progress, favourite, active} (name)}
-                <Skill name={name} progress={progress} fav={favourite} active={active}/>
-            {/each}
+    <div class="skills-container">
+        <div>
+            <h3><img src={workIcon} alt="work icon"> Work Experience</h3>
+            <div class="skills">
+                {#each sortedWorkSkills as {name, progress, favourite, active, category} (name)}
+                    <div animate:flip="{{duration: 500}}">
+                        <Skill name={name} progress={progress} fav={favourite} active={active}
+                               grey={filter && category !== filter}/>
+                    </div>
+                {/each}
+            </div>
         </div>
-    </div>
 
-    <div>
-        <h3><img src={learningIcon} alt="work icon"> Personal Interest</h3>
-        <div class="skills">
-            {#each personalSkills.filter(x => (!filter || x.category === filter)) as {name, progress, favourite, active} (name)}
-                <Skill name={name} progress={progress} fav={favourite} active={active}/>
-            {/each}
+        <div>
+            <h3><img src={learningIcon} alt="work icon"> Personal Interest</h3>
+            <div class="skills">
+                {#each sortedPersonalSkills as {name, progress, favourite, active, category} (name)}
+                    <div animate:flip="{{duration: 500}}">
+                        <Skill name={name} progress={progress} fav={favourite} active={active}
+                               grey={filter && category !== filter}/>
+                    </div>
+                {/each}
+
+            </div>
         </div>
+
+
     </div>
-
-
-</div>
 
 </div>
 
@@ -59,14 +92,39 @@
 <!--<div class="work-skills">-->
 
 
-
 <style lang="scss">
+
+
+
+  .section-description {
+    text-align: left;
+    width: 60%;
+    margin: auto;
+
+    > div {
+      color: var(--text);
+      font-size: 0.75rem;
+
+    }
+    > div:first-child {
+      color: var(--text-intense);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    img {
+      vertical-align:middle;
+      line-height: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.5rem;
+    }
+  }
 
   .skill-container {
     width: 60%;
     margin: auto;
     padding-bottom: 6rem;
-    //min-height: 80vh;
+    min-height: 80vh;
+    transition: 2s;
   }
 
   ul {
@@ -98,15 +156,17 @@
       vertical-align: middle;
     }
   }
+
   //
-  @media screen and  (min-width: 901px)  {
+  @media screen and (min-width: 901px) {
     .skills-container {
       flex-wrap: nowrap;
     }
   }
-  @media screen and  (max-width: 900px)  {
+
+  @media screen and (max-width: 900px) {
     .skills-container {
-    flex-wrap: wrap;
+      flex-wrap: wrap;
     }
   }
 
@@ -148,7 +208,6 @@
   }
 
 
-
   .skills {
     display: grid;
     align-items: center;
@@ -156,12 +215,11 @@
     grid-template-columns: repeat(5, 1fr);
     //flex-wrap: wrap;
     gap: 2rem;
-     > div {
-       background-color: #2EB775;
-     }
+
+    > div {
+      background-color: transparent;
+    }
   }
-
-
 
 
 </style>

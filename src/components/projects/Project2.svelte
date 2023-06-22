@@ -30,7 +30,7 @@
 
   .project {
     position: relative;
-    width: 70%;
+    width: 60%;
     margin: auto;
   }
 

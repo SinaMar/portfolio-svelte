@@ -37,7 +37,7 @@
 <svelte:window bind:scrollY={y}/>
 
 <p>Some projects I worked on during my career. </p>
-<div class="pasc">
+<div class="projects-section">
     <div class="project-container">
         {#each projects as project, index}
             <div class="project-nav-target" id={project.name}></div>
@@ -61,10 +61,9 @@
 
 <style lang="scss">
 
-  .pasc {
+  .projects-section {
     display: flex;
     justify-content: space-evenly;
-
   }
 
   .project-container {
@@ -74,9 +73,9 @@
 
   p {
     color: var(--text);
-    text-align: right;
+    text-align: left;
     position: absolute;
-    right: 20%;
+    left: 20%;
   }
 
   .project-wrapper {

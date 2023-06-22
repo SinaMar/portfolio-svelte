@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SectionHeader from "./lib/SectionHeader.svelte";
+    import SectionHeader from "./components/section/Section.svelte";
     import NavBar from "./lib/NavBar.svelte";
     import About from "./sections/About.svelte";
     import Skills from "./sections/SkillsSection.svelte";
@@ -15,28 +15,14 @@
     <SectionHeader name="Skills">
         <Skills/>
     </SectionHeader>
-    <SectionHeader name="Projects" mirror>
-        <Projects/>
-    </SectionHeader>
-    <SectionHeader name="Interests">
+    <SectionHeader name="Interests" mirror>
         <InterestsSection/>
+    </SectionHeader>
+    <SectionHeader name="Projects" >
+        <Projects/>
     </SectionHeader>
 
     <ContactSection name='Contact'/>
-    <!-- <SectionHeader name="Contact Me" mirror offset>
-        <Contact/>
-    </SectionHeader> -->
-
-
-<!-- 
-    <Test1/>
-    <Test2/> -->
-    
-
-
-    <!--  <SectionHeader name="Projects"/>-->
-    <!--  <SectionHeader name="Interests"/>-->
-    <!--  <SectionHeader name="Contact"/>-->
 </main>
 
 <style lang="scss">

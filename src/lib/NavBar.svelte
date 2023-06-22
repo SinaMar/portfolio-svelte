@@ -62,13 +62,11 @@
 
 
     $: sticky = y >= offset;
-    // $: about = y >= 100 && y <= 500;
 
 </script>
 
 <svelte:window bind:scrollY={y} />
 
-<!--<div bind:this={target} class="target"></div>-->
 <div id="nav-container" class="desktop">
     <img src={Logo} style={  `height: ${sticky ? 30 : 60}px`} class="logo" alt="Logo"/>
     <nav id="navbar" bind:this={navbar} class:sticky>
