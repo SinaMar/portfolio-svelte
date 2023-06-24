@@ -77,7 +77,7 @@ export const projects: Project[] = [
     createProject(
         "<span class='nowrap'>Bundesliga 6</span>",
         "2018",
-        "Bundesliga Tippspiel App",
+        "The Bundesliga 6 app provided users with the ability to make predictions on upcoming games of the Bundesliga and compete for a place on the highscore leaderboard. It offered the potential to win cash prizes for those who secured top positions on the leaderboard.  ",
         ["React", "Redux", "RxJS", "Typescript", "Styled Components" ],
         ["Bundesliga6-1.png", "Bundesliga6-1.png", "Bundesliga6-1.png"],
         ["API Design in Zusammenarbeit mit dem Backend-Team",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
         ["Phaser", "Typescript", "Html", "CSS", "Webpack" ],
         ["Cashberry.png", "Cashberry.png", "Cashberry.png"],
         ["Entwicklung von Blackjack-, Roulette- und Slot Machine-Spielen",
-        "Prototyping mit verschiedenen WebGL-Technologien",
+        "Prototyping of different WebGL technologies",
         "Entwurf der API in Zusammenarbeit mit dem Backend-Team",
         "Umsetzung der asynchronen Spiele-Logik und Visualisierung durch eine auf dem Command Pattern basierende Architektur",
         "Deployment auf AWS S3 Buckets unter Verwendung von Jenkins",

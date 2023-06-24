@@ -30,13 +30,13 @@
 
   .project {
     position: relative;
-    width: 60%;
-    margin: auto;
+    width: 100%;
+    //margin: auto;
   }
 
   .border {
-    border: 2rem solid transparent;
-    border-image: url('/assets/border.svg') 10 stretch;
+    //border: 2rem solid transparent;
+    //border-image: url('/assets/border.svg') 10 stretch;
   }
 
   .content {

@@ -123,7 +123,7 @@
     width: 60%;
     margin: auto;
     padding-bottom: 6rem;
-    min-height: 80vh;
+    //min-height: 80vh;
   }
 
   ul {

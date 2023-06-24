@@ -114,7 +114,7 @@ p {
   display: block;
   height: 1em;
   z-index: -1;
-  transform: translate(20%, -0.75em);
+  transform: translate(1rem, -0.75em);
   background: var(--bg-dark);
 }
 

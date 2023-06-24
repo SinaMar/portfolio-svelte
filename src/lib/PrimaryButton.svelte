@@ -23,9 +23,13 @@
     overflow: hidden;
     font-size: 1rem;
     font-weight: bold;
+    font-family: var(--text);
 
     &.secondary {
       background: transparent;
+      border-color: hsla(221, 54%, 86%, 0.8);
+      color: hsla(221, 54%, 86%, 1);
+      //border: 0.1em solid  hsla(155, 73%, 33%, 0.5 );
     }
   }
 
@@ -33,7 +37,7 @@
   button:focus-visible {
     background: hsl(155, 73%, 33% );
     &.secondary {
-    background: hsla(155, 73%, 33%, 0.1 )
+    background: hsla(220, 20%, 30%, 0.8);
     }
 
   }

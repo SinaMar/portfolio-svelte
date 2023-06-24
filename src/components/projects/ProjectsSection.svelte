@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Project from "./Project.svelte";
+    import Project from "./Project3.svelte";
     import {projects} from "../../data/myData";
     import {onMount} from "svelte";
     import Project2 from "./Project2.svelte";
