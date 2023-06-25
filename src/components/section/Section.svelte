@@ -38,7 +38,7 @@
 
 
   .section-body {
-    padding: 1rem;
+    //padding: 1rem;
     background: var(--bg-dark);
     color: white;
   }

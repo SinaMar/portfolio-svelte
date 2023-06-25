@@ -4,23 +4,24 @@
 </script>
 
 <div>
-    <h4 class="text-underline">Responsibilities</h4>
+<!--    <h4 class="text-underline">Responsibilities</h4>-->
     <ul>
         {#each responsibilities as responsibility}
             <li>{responsibility}</li>
         {/each}
     </ul>
-    <div class="techs">
-        {#each techs as tech}
-            <img src='/assets/techs/{tech}.svg' alt={tech}>
-        {/each}
-    </div>
+<!--    <div class="techs">-->
+<!--        {#each techs as tech}-->
+<!--            <img src='/assets/techs/{tech}.svg' alt={tech}>-->
+<!--        {/each}-->
+<!--    </div>-->
 </div>
 
 <style lang='scss'>
 
   div {
     text-align: left;
+    font-family: var(--text);
   }
 
   p {
@@ -35,14 +36,16 @@
   }
 
   li {
-    font-size: 0.75rem;
+    font-size: 1rem;
     line-height: 1.3;
     position: relative;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
   }
 
   li::before {
     vertical-align: middle;
+    line-height: 1.3;
     content: "";
     position: absolute;
     top: 0.5rem;
@@ -52,20 +55,21 @@
     height: 0.4rem;
     background-color: var(--accent-color);
     border-radius: 50%;
+    margin-right: 1rem;
   }
 
-  .techs {
-    display: flex;
-    gap: 0.5rem;
-
-    img {
-      width: 2rem;
-      height: 2rem;
-      background-color: var(--bg-dark);
-      padding: 0.5rem;
-      border-radius: 10px;
-    }
-  }
+  //.techs {
+  //  display: flex;
+  //  gap: 0.5rem;
+  //
+  //  img {
+  //    width: 2rem;
+  //    height: 2rem;
+  //    background-color: var(--bg-dark);
+  //    padding: 0.5rem;
+  //    border-radius: 10px;
+  //  }
+  //}
 
 
 </style>

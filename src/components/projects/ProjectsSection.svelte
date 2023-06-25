@@ -2,10 +2,12 @@
     import Project from "./Project3.svelte";
     import {projects} from "../../data/myData";
     import {onMount} from "svelte";
-    import Project2 from "./Project2.svelte";
+    import Project2 from "./Project.svelte";
 
     let y = 0;
     let projectDivs: NodeListOf<HTMLDivElement>;
+    let projectNavbar: HTMLDivElement;
+    let fixed = false;
 
     onMount(() => {
         projectDivs = document.querySelectorAll(".project-nav-target");
@@ -28,6 +30,16 @@
                 minId = (x as HTMLDivElement).id;
             }
         })
+
+        if(projectDivs.length)
+            fixed =  ( projectDivs[0] as HTMLDivElement).getBoundingClientRect().y < 0 &&
+                ( projectDivs[projectDivs.length-1] as HTMLDivElement).getBoundingClientRect().y > 0;
+
+        console.log('fixed', fixed);
+        console.log(( projectDivs[0] as HTMLDivElement).getBoundingClientRect().y)
+        console.log(( projectDivs[projectDivs.length-1] as HTMLDivElement).getBoundingClientRect().y)
+        console.log('..')
+
         return minId;
     }
 
@@ -81,6 +93,12 @@
   .project-wrapper {
     padding-bottom: 6rem;
     padding-top: 6rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    aside {
+      display: none;
+    }
   }
 
   aside {

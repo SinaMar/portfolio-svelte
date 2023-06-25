@@ -17,17 +17,18 @@
     div {
       flex-basis: 70%;
       text-align: left;
+      //max-width: 30rem;
     }
 
     .date {
       color: var(--accent-color);
       font-weight: bold;
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       margin: 0
     }
 
     p {
-      font-size: 0.75rem;
+      font-size: 1rem;
       color: var(--text);
     }
 
