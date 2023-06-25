@@ -87,7 +87,7 @@
     color: var(--text);
     text-align: left;
     position: absolute;
-    left: 20%;
+    right: 20%;
   }
 
   .project-wrapper {

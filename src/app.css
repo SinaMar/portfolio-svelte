@@ -14,6 +14,9 @@
 
   --skew: 2deg;
 
+  /*--oblique-top-dag: 2deg;*/
+  /*--oblique-top-dag-mirror: -2deg;*/
+
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);

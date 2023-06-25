@@ -35,12 +35,12 @@
 
 <svelte:window on:resize={onResize}/>
 <section id={name}></section>
-<!--<SectionHeader name={name} mirror/>-->
-<div class="section-heading">
-    <h1>
-        {name}
-    </h1>
-</div>
+<SectionHeader name={name} mirror/>
+<!--<div class="section-heading">-->
+<!--    <h1>-->
+<!--        {name}-->
+<!--    </h1>-->
+<!--</div>-->
 
 <div class="contact" bind:this={contact}>
     <div class="contact-info">
@@ -102,6 +102,7 @@
 
 
   .contact-info {
+    padding: 2rem;
     background-color: var(--accent-color);
     //height: 300px;
     //width: 40%;

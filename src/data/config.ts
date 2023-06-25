@@ -1,0 +1,1 @@
+export const OBLIQUE_DEGREE = 2;

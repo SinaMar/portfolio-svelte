@@ -6,9 +6,12 @@
     import Projects from "./components/projects/ProjectsSection.svelte";
     import ContactSection from "./sections/ContactSection.svelte";
     import InterestsSection from "./sections/InterestsSection.svelte";
+    import {OBLIQUE_DEGREE} from "./data/config";
+
+
 </script>
 
-<main>
+<main style="--oblique-deg: {OBLIQUE_DEGREE}deg; --oblique-deg-mirror: -{OBLIQUE_DEGREE}deg;" >
 
     <NavBar/>
     <About/>
@@ -23,10 +26,12 @@
     </SectionHeader>
 
     <ContactSection name='Contact'/>
+
+
 </main>
 
 <style lang="scss">
   main {
-    //position: relative;
+
   }
 </style>
