@@ -17,7 +17,7 @@
     <!--    <div class="border">-->
     <div class="content">
         {#if !mirror}
-            <div>
+            <div class="carousel">
                 <Carousel screenshots={images} mobile={mobile}/>
             </div>
         {/if}
@@ -25,7 +25,7 @@
             <ProjectDescription {name} {year} {description}/>
         </div>
         {#if mirror}
-            <div>
+            <div class="carousel">
                 <Carousel screenshots={images} mobile={mobile}/>
             </div>
         {/if}
@@ -53,6 +53,10 @@
 
 <style lang="scss">
 
+  .carousel {
+    max-width: 100vw;
+  }
+
   .project {
     position: relative;
     //width: 60%;
@@ -66,13 +70,13 @@
   }
 
   .content {
-    padding: 2rem;
+    //padding: 2rem;
     justify-content: center;
     //background-color: var(--bg);
     //display: grid;
     //display: flex;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 100vw;
     margin: auto;
     align-items: center;
 

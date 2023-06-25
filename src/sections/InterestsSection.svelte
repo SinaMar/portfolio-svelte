@@ -24,5 +24,6 @@
       width: 60%;
       justify-content: space-between;
       margin: auto;
+      flex-wrap: wrap;
     }
 </style>

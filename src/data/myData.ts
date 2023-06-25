@@ -79,9 +79,11 @@ export const projects: Project[] = [
         "2018",
         "The Bundesliga 6 app provided users with the ability to make predictions on upcoming games of the Bundesliga and compete for a place on the highscore leaderboard. It offered the potential to win cash prizes for those who secured top positions on the leaderboard.  ",
         ["React", "Redux", "RxJS", "Typescript", "Styled Components" ],
-        ["Bundesliga6-1.png", "Bundesliga6-1.png", "Bundesliga6-1.png"],
+        // ["Bundesliga6-1.png", "Bundesliga6-1.png", "Bundesliga6-1.png"],
+        ["Sportsbook-1.png", "Sportsbook-2.png", "Sportsbook-3.png", "Sportsbook-4.png", "Sportsbook-5.png", "Sportsbook-6.png", ],
         ["API Design in Zusammenarbeit mit dem Backend-Team",
-        "Implementierung des UIs in Abstimmung mit dem Design-Team"]
+        "Implementierung des UIs in Abstimmung mit dem Design-Team"],
+        true
     ),
     createProject(
         "<span class='nowrap'>Cashberry Slots</span>",
@@ -144,6 +146,7 @@ export const projects: Project[] = [
         "Collaborating with international backend teams to align and integrate APIs through contract-based communication.",
         "Implementing a code generator to automatically create a mock server based on an OpenAPI definition.",
         "Working in close collaboration with the product and design teams, utilizing Storybook to develop UI components.",
-        "Facilitating the onboarding process for new team members, providing guidance and support."]
+        "Facilitating the onboarding process for new team members, providing guidance and support."],
+        true
     ),
 ];

@@ -42,14 +42,15 @@
   }
 
   .portrait {
-    height: 25rem;
+    //height: 25rem;
+    max-width: 100vw;
   }
 
   .about-container {
     column-gap: 12.5rem;
     margin: auto;
     //margin-top: 6rem;
-    height: calc(100vh - 4rem);
+    //height: calc(100vh - 4rem);
     //margin-bottom: 20rem;
     display: flex;
     align-items: center;
@@ -61,7 +62,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      width: 31.25rem;
+      max-width: 31.25rem;
 
       p {
         font-size: 1.25rem;
@@ -110,7 +111,7 @@
     transform: skew(0deg) translateY(30%);
     background: var(--bg-dark);
     z-index: -1;
-    left: 20%;
+    left: 0.5rem;
   }
 
   .buttons {
