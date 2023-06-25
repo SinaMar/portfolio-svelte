@@ -103,12 +103,12 @@
     width: 100%;
 
     //object-fit: cover;
-    &.top {
-      transform: translateY(-50%);
-    }
-    &.bottom {
-      transform: translateY(-50%) scale(-1, -1);
-    }
+    //&.top {
+    //  transform: translateY(-50%);
+    //}
+    //&.bottom {
+    //  transform: translateY(-50%) scale(-1, -1);
+    //}
     &.body-top {
       position: relative;
       //top: 0;

@@ -57,6 +57,8 @@
     text-align: center;
     justify-content: center;
     flex-wrap: wrap-reverse;
+    max-width: 100rem;
+    height: 100vh;
 
     .about {
       display: flex;

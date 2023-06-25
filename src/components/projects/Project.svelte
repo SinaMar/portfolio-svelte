@@ -59,22 +59,13 @@
 
   .project {
     position: relative;
-    //width: 60%;
     margin: auto;
   }
 
-  .border {
-    //border-top: 2rem solid transparent;
-    //border-bottom: 2rem solid transparent;
-    //border-image: url('/assets/border.svg') 10 stretch;
-  }
+
 
   .content {
-    //padding: 2rem;
     justify-content: center;
-    //background-color: var(--bg);
-    //display: grid;
-    //display: flex;
     flex-wrap: wrap;
     max-width: 100vw;
     margin: auto;
@@ -84,8 +75,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr min-content min-content min-content;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
+    grid-column-gap: 0rem;
+    grid-row-gap: 0rem;
 
     > div {
       margin: auto;
@@ -109,6 +100,7 @@
     > div:nth-child(3) {
       grid-column: span 2;
       margin: 0;
+      padding-top: 3rem;
     }
 
     > div:nth-child(4) {
@@ -149,7 +141,7 @@
   }
 
   .responsibilities {
-    flex-basis: 50%;
+    //flex-basis: 50%;
     //grid-column: 1 / -1;
     text-align: left;
   }

@@ -15,11 +15,11 @@
     <SectionHeader name="Skills">
         <Skills/>
     </SectionHeader>
-    <SectionHeader name="Interests" mirror>
-        <InterestsSection/>
-    </SectionHeader>
-    <SectionHeader name="Projects" >
+    <SectionHeader name="Projects" mirror>
         <Projects/>
+    </SectionHeader>
+    <SectionHeader name="Interests" >
+        <InterestsSection/>
     </SectionHeader>
 
     <ContactSection name='Contact'/>

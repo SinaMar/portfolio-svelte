@@ -14,7 +14,8 @@
 <div class="section-body"  >
     <slot/>
 </div>
-<img src={deco} alt="" class="deco body-bottom"  class:mirror >
+<!--<img src={deco} alt="" class="deco body-bottom"  class:mirror >-->
+<div class="body-bottom2" ></div>
 
 <style lang="scss">
   section {
@@ -36,9 +37,18 @@
     }
   }
 
+  .body-bottom2 {
+    border-bottom: 1.3rem solid transparent;
+    border-image: url('/assets/border-dark.svg') 10 stretch;
+    width: 100%;
+    margin-bottom: 16rem;
+  }
+
 
   .section-body {
     //padding: 1rem;
+
+
     background: var(--bg-dark);
     color: white;
   }

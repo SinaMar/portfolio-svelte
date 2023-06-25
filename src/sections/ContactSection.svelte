@@ -202,6 +202,7 @@
 
   .section-body {
     background: var(--bg-dark);
+
     color: white;
     z-index: -10;
   }

@@ -62,7 +62,7 @@
 
 
     $: sticky = y >= offset;
-    let navItems = ['Skills', 'Interests', 'Projects', 'Contact']
+    let navItems = ['Skills', 'Projects','Interests', 'Contact']
 
 </script>
 
