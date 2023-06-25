@@ -1,7 +1,5 @@
 <script lang="ts">
-    import deco from '../../assets/deco2.svg';
     import SectionHeader from "./SectionHeader.svelte";
-
     export let name;
     export let mirror = false;
 
@@ -11,13 +9,13 @@
 <SectionHeader {name} {mirror}/>
 
 
-<div class="section-body"  >
+<div class="section-body" >
     <slot/>
 </div>
-<!--<img src={deco} alt="" class="deco body-bottom"  class:mirror >-->
-<div class="body-bottom2" ></div>
+<div class="body-border-bottom"></div>
 
 <style lang="scss">
+
   section {
     scroll-margin-top: 2rem;
     &.first {
@@ -25,31 +23,14 @@
     }
   }
 
-  .deco{
-    width: 100%;
-
-    &.body-bottom {
-      transform: scale(-1,-1);
-      margin-bottom: 16rem;
-      &.mirror {
-        transform: scale(1,-1);
-      }
-    }
+  .section-body {
+    background: var(--bg-dark);
   }
 
-  .body-bottom2 {
+  .body-border-bottom {
     border-bottom: 1.3rem solid transparent;
     border-image: url('/assets/border-dark.svg') 10 stretch;
     width: 100%;
     margin-bottom: 16rem;
-  }
-
-
-  .section-body {
-    //padding: 1rem;
-
-
-    background: var(--bg-dark);
-    color: white;
   }
 </style>

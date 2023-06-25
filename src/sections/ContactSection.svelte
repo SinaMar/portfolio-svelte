@@ -1,6 +1,7 @@
 <script lang="ts">
     import {onMount} from "svelte";
     import CTAButton from "../lib/CTAButton.svelte";
+    import SectionHeader from "../components/section/SectionHeader.svelte";
 
     export let name;
 
@@ -34,6 +35,7 @@
 
 <svelte:window on:resize={onResize}/>
 <section id={name}></section>
+<!--<SectionHeader name={name} mirror/>-->
 <div class="section-heading">
     <h1>
         {name}
@@ -45,28 +47,32 @@
         <p>Let’s Talk</p>
         <p>mail@sinamartens.com</p>
     </div>
-    <div class="contact-form">
-        <form on:submit={mockSendEmail}>
-            <div class='form-content'>
-                <label for="name">
-                    Name
-                </label>
-                <input type="text" name="name" id="name" required/>
+    <div class="contact-border">
 
-                <label for="email">
-                    Email
-                </label>
-                <input type="email" name="email" id="email" required/>
-                <label for='message'>
-                    Message
-                </label>
-                <textarea name="message" id="message" required rows="10"> </textarea>
-                <CTAButton type="submit">Send Message</CTAButton>
+        <div class="contact-form">
+            <form on:submit={mockSendEmail}>
+                <div class='form-content'>
+                    <label for="name">
+                        Name
+                    </label>
+                    <input type="text" name="name" id="name" required/>
 
-            </div>
+                    <label for="email">
+                        Email
+                    </label>
+                    <input type="email" name="email" id="email" required/>
+                    <label for='message'>
+                        Message
+                    </label>
+                    <textarea name="message" id="message" required rows="10"> </textarea>
+                    <CTAButton type="submit">Send Message</CTAButton>
 
-        </form>
+                </div>
+
+            </form>
+        </div>
     </div>
+
 </div>
 
 <div
@@ -82,7 +88,7 @@
 <style lang="scss">
   .contact {
     position: relative;
-    width: 60%;
+    //width: 60%;
     margin: auto;
 
     margin-top: 2rem;
@@ -90,27 +96,47 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
   }
+
+
 
   .contact-info {
     background-color: var(--accent-color);
     //height: 300px;
-    width: 40%;
+    //width: 40%;
+    max-width: 500px;
     transform: translateX(10%);
     z-index: 1;
     background: linear-gradient(93.18deg, #35A770 0%, #2A9964 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
+
     p:nth-child(1) {
       font-family: var(--font-heading);
       font-size: 2rem;
       margin-bottom: 10rem;
     }
   }
+  .contact-border {
 
+
+
+  }
   .contact-form {
+    //border-top: 1.3rem solid transparent;
+    border: 1.3rem solid transparent;
+    border-image-source: url('/assets/border-dark.svg');
+    border-image-repeat: stretch;
+    border-image-slice: 30;
+    border-image-width: 60px;
+    border-image-outset: 16px;
+    //border-image: url('/assets/border-dark.svg') 30 30px 7px stretch;
+
+
     background-color: var(--bg-dark);
-    width: 80%;
+    //width: 80%;
+    max-width: 600px;
     transform: skewY(-2deg);
     display: flex;
     padding: 8rem;
@@ -172,7 +198,7 @@
     z-index: -10;
   }
 
-  section  {
+  section {
     scroll-margin-top: 8rem;
   }
 

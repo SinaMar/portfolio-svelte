@@ -5,79 +5,58 @@
     export let name;
     export let mirror = false;
 
-    let degree = 2;
+    let obliqueDegree = 2;
 
     let innerWidth = window.innerWidth;
-    let triangleHeight = innerWidth * Math.tan(degree * Math.PI / 180);
+    let obliqueTopHeight = innerWidth * Math.tan(obliqueDegree * Math.PI / 180);
+    let obliqueTopSvg;
 
-    let triangleSvg;
-
-    const setTriangle = () => {
-        triangleSvg.setAttribute("width", triangleSvg.parentElement.clientWidth + "px");
+    const setObliqueTopDimensions = () => {
+        obliqueTopSvg.setAttribute("width", obliqueTopSvg.parentElement.clientWidth + "px");
         innerWidth = window.innerWidth;
-        triangleHeight = innerWidth * Math.tan(2 * Math.PI / 180);
+        obliqueTopHeight = innerWidth * Math.tan(2 * Math.PI / 180);
     };
 
     onMount(() => {
-        setTriangle();
+        setObliqueTopDimensions();
     });
     const onResize = () => {
-        setTriangle();
+        setObliqueTopDimensions();
     };
 
-    $: th = triangleHeight + 'px';
-    let deg = (mirror ? -1 : 1) * degree + 'deg';
-    let degMirror = (mirror ? 1 : -1) * degree + 'deg';
+    $: th = obliqueTopHeight + 'px';
+    let deg = (mirror ? -1 : 1) * obliqueDegree + 'deg';
+    let degMirror = (mirror ? 1 : -1) * obliqueDegree + 'deg';
 
 </script>
 
 
 <svelte:window on:resize={onResize}/>
-<header style="--triangle-height: {th}; --deg: {deg}; --deg-mirror: {degMirror}">
-    <div class="section-header" class:mirror style="--section-header-translate: {triangleHeight / 2}px">
-<!--        <img src={deco} alt="" class="deco top">-->
+<header style="--oblique-top-height: {th}; --deg: {deg}; --deg-mirror: {degMirror}">
+    <div class="section-header-line"  style="--section-header-translate: {obliqueTopHeight / 2}px" class:mirror>
         <h1 class:mirror> {name} </h1>
-<!--        <img src={deco} alt="" class="deco bottom">-->
     </div>
-
-    <img src={deco} style="display: block;" alt="" class="deco body-top" class:mirror>
-<!--    <div class="t"></div>-->
-    <svg class="triangle" style="display: block;" bind:this={triangleSvg} class:mirror>
-        <polygon fill="#21242C"
-                 points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}
-        />
+    <img src={deco}  alt="" class="oblique-top-deco" class:mirror>
+    <svg class="oblique-top" style="display: block;" bind:this={obliqueTopSvg} class:mirror>
+        <polygon fill="#21242C" points={`0,0 ${innerWidth},${obliqueTopHeight} 0,${obliqueTopHeight}`}/>
     </svg>
 </header>
 
 <style lang='scss'>
-  .t {
-    height: 20px;
-    background: white;
-    width: 100%;
-  }
 
-  header {
-    position: relative;
-  }
-
-  .section-header {
+  .section-header-line {
     margin-top: 6rem;
     height: 2rem;
-    //background: var(--bg-dark);
     transform: rotateZ(var(--deg)) translateY(var(--section-header-translate));
-
-
-      border-top: 1.3rem solid transparent;
-      border-bottom: 1.3rem solid transparent;
-      border-image: url('/assets/border1.svg') 10 stretch;
-
+    border-top: 1.3rem solid transparent;
+    border-bottom: 1.3rem solid transparent;
+    border-image: url('/assets/border1.svg') 10 stretch;
   }
 
   h1 {
     font-family: var(--font-heading);
     position: absolute;
     text-align: left;
-    //bottom: 1.3rem;
     margin: 0;
     transform: rotateZ(var(--deg-mirror));
     left: 20%;
@@ -89,50 +68,26 @@
     }
   }
 
-  .triangle {
+  .oblique-top {
     position: relative;
-    //top: 0.5rem;
-    height: var(--triangle-height);
+    height: var(--oblique-top-height);
 
     &.mirror {
       transform: scale(-1, 1);
     }
   }
 
-  .deco {
+  .oblique-top-deco {
     width: 100%;
+    position: relative;
+    transform-origin: left;
+    transform: rotate(var(--deg)) translateY(52%);
+    height: 17px;
+    display: block;
 
-    //object-fit: cover;
-    //&.top {
-    //  transform: translateY(-50%);
-    //}
-    //&.bottom {
-    //  transform: translateY(-50%) scale(-1, -1);
-    //}
-    &.body-top {
-      position: relative;
-      //top: 0;
-      //transform-origin: left top;
-      //top: var(--triangle-height);
-
-      //top: 17px;
-      transform-origin: left;
-      transform: rotate(var(--deg)) translateY(50%); // translateY( var(--triangle-height)) ;
-
-      height: 17px;
-      &.mirror {
-        transform-origin: right;
-      }
-
+    &.mirror {
+      transform-origin: right;
     }
-  }
-
-  @media only screen and (min-width: 1048px) {
-    .deco .body-top {
-      //width: 100%;
-
-    }
-
   }
 
 </style>
