@@ -2,6 +2,7 @@
     import {onMount} from "svelte";
     import CTAButton from "../lib/CTAButton.svelte";
     import SectionHeader from "../components/section/SectionHeader.svelte";
+    import SectionTitle from "../components/section/SectionTitle.svelte";
 
     export let name;
 
@@ -35,7 +36,9 @@
 
 <svelte:window on:resize={onResize}/>
 <section id={name}></section>
-<SectionHeader name={name} mirror/>
+<SectionHeader mirror muted>
+        Contact <span class="accent-color">Me</span>
+</SectionHeader>
 <!--<div class="section-heading">-->
 <!--    <h1>-->
 <!--        {name}-->
@@ -45,6 +48,7 @@
 <div class="contact" bind:this={contact}>
     <div class="contact-info">
         <p>Let’s Talk</p>
+        <p>If you're interested in working together or have any feedback on my portfolio, feel free to get in touch. I'd love to hear from you!</p>
         <p>mail@sinamartens.com</p>
     </div>
     <div class="contact-border">
@@ -79,9 +83,9 @@
         class="section-body-container"
         style={`transform: translateY(-${contactHeight / 2}px)`}
 >
-    <svg height={triangleHeight} class="triangle" bind:this={svg}>
-        <polygon fill="#21242C" points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}/>
-    </svg>
+<!--    <svg height={triangleHeight} class="triangle" bind:this={svg}>-->
+<!--        <polygon fill="#21242C" points={`0,0 ${innerWidth},${triangleHeight} 0,${triangleHeight}`}/>-->
+<!--    </svg>-->
     <div class="section-body" style={`height: ${contactHeight / 2 + 100}px`}></div>
 </div>
 
@@ -100,14 +104,12 @@
   }
 
 
-
   .contact-info {
     padding: 2rem;
     background-color: var(--accent-color);
-    //height: 300px;
-    //width: 40%;
+
     max-width: 500px;
-    transform: translateX(10%);
+    //transform: translateX(10%);
     z-index: 1;
     background: linear-gradient(93.18deg, #35A770 0%, #2A9964 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -116,23 +118,26 @@
     p:nth-child(1) {
       font-family: var(--font-heading);
       font-size: 2rem;
-      margin-bottom: 10rem;
+      margin: 0;
+    }
+    p:nth-child(2) {
+      max-width: 18.75rem;
+
     }
   }
+
   .contact-border {
 
 
-
   }
+
   .contact-form {
-    //border-top: 1.3rem solid transparent;
-    border: 1.3rem solid transparent;
-    border-image-source: url('/assets/border-dark.svg');
-    border-image-repeat: stretch;
-    border-image-slice: 30;
-    border-image-width: 60px;
-    border-image-outset: 16px;
-    //border-image: url('/assets/border-dark.svg') 30 30px 7px stretch;
+    //border: 1.3rem solid transparent;
+    //border-image-source: url('/assets/border-dark.svg');
+    //border-image-repeat: stretch;
+    //border-image-slice: 30;
+    //border-image-width: 60px;
+    //border-image-outset: 16px;
 
 
     background-color: var(--bg-dark);
@@ -140,9 +145,9 @@
     max-width: 600px;
     transform: skewY(-2deg);
     display: flex;
-    padding: 8rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 10%;
+    //padding-top: 3rem;
+    //padding-bottom: 3rem;
 
     justify-content: center;
 
@@ -197,6 +202,8 @@
   .section-body-container {
     // transform: translateY(-150px);
     z-index: -10;
+    position: relative;
+    width: 100%;
   }
 
   section {

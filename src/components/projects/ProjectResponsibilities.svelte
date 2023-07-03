@@ -1,6 +1,5 @@
 <script lang="ts">
     export let responsibilities;
-    export let techs;
 </script>
 
 <div>

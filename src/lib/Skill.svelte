@@ -3,6 +3,7 @@
 
   import heart from "../assets/icons/heart.svg";
   import forward from "../assets/icons/forward.svg";
+  import {getTechImageSrc} from "../data/myData";
 
   export let grey = false;
   export let name = "Vite";
@@ -47,7 +48,7 @@
   {#if fav}
     <img src={heart} alt="heart" class="heart" />
   {/if}
-  <img src={logoPath} alt="logo" class="tech-logo" />
+  <img src={getTechImageSrc(name)} alt={name} class="tech-logo" />
   <div class="container">
     <div  class="text-container" >
       <span bind:this={nameText}>{name}</span>

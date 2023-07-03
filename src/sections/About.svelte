@@ -1,41 +1,63 @@
 <script lang="ts">
     import Portrait from '../assets/Portrait.png'
     import HandWaveIcon from '../assets/icons/handwave.svg'
+    import DownloadIcon from '../assets/icons/download-pur.svg'
     import PrimaryButton from "../lib/PrimaryButton.svelte";
+    import { fade, fly } from 'svelte/transition';
+    import {onMount} from "svelte";
+
+    let visible = false;
+
+    onMount( () => {
+        setTimeout( () => {
+            visible = true;
+
+        }, 500)
+    })
+
 </script>
 
 
 <section id="About">
 </section>
 
-<div class="about-container">
+<div class="about-container" >
+    {#if visible}
     <div class="about">
-        <div>
-            <h2>Hey there,<img src={HandWaveIcon} alt="HandWave Icon"  class="handWaveIcon"/></h2>
-            <h1>I’m <span>Sina</span></h1>
-            <h1 class="backline">Frontend Developer</h1>
+        <div in:fly={{ y: 200, duration: 1000 }} >
+            <h2  >Hey there,<img src={HandWaveIcon} alt="HandWave Icon" class="handWaveIcon"/></h2>
+            <h1 >I’m <span>Sina</span></h1>
+            <h1  class="backline">Frontend Developer</h1>
             <p>I'm a dedicated Frontend Developer crafting outstanding websites. I stay updated with the latest
                 trends and
                 blend functionality with aesthetics for seamless user experiences. Collaboration is key to my
                 process,
                 bringing diverse perspectives for exceptional digital solutions. Let's build user-friendly websites
                 together that leave a lasting impression!
+<!--                Looking for new oppurtunities-->
             </p>
             <div class="buttons">
                 <!--                    <button class="primary">Download CV</button>-->
 <!--                <a class="btn primary">Download CV</a>-->
-                <PrimaryButton> Download CV </PrimaryButton>
-                <PrimaryButton secondary> See Projects</PrimaryButton>
+                <PrimaryButton> See Projects </PrimaryButton>
+                <PrimaryButton secondary> Download CV <img src={DownloadIcon} alt=""  style="margin-left: 1rem" width="16px" > </PrimaryButton>
 <!--                <a class="btn secondary" href="#Projects">See Project</a>-->
                 <!--                    <button class="secondary">See Project</button>-->
             </div>
         </div>
     </div>
-    <img src={Portrait} alt="Logo"  class="portrait"/>
+
+
+    <img  in:fly={{ y: 200, duration: 1000, delay: 300 }} src={Portrait} alt="Logo"  class="portrait"/>
+    {/if}
 </div>
 
 
 <style lang="scss">
+
+  .invisible {
+    display: none;
+  }
 
   .handWaveIcon {
   width: 5rem;

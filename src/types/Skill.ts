@@ -11,6 +11,14 @@ export const Category = {
     Software: "Software"
 } as const;
 
+export const Category2 = {
+    FrontEnd: "Languages",
+    BackEnd: "Frameworks & Libraries",
+    Frameworks: "Tools",
+    UIUX: "Software",
+    Toolss: "Software"
+} as const;
+
 export type CategoryType = typeof Category[keyof typeof Category]
 
 export interface Skill {

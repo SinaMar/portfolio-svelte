@@ -43,21 +43,24 @@ body {
   margin: 0;
   /*display: flex;*/
   place-items: center;
+  /*min-height: 100%;*/
   /*min-width: 320px;*/
-  /*min-height: 100vh;*/
+  min-height: 100vh;
 }
 
 @media only screen and (min-width: 1300px) {
   html {
 
-    font-size: 0.8vw;
+    /*font-size: 0.8vw;*/
 
   }
 }
 
 html {
+
   scroll-behavior: smooth;
   font-size: 16px;
+  height: 100%;
 
 
 }
@@ -116,6 +119,10 @@ p {
 
 .flexCol {
   flex-direction: column;
+}
+
+.accent-color {
+  color: var(--accent-color);
 }
 
 

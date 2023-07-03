@@ -49,7 +49,7 @@
 <style lang="scss">
 
   section {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 6rem;
     &.first {
       scroll-margin-top: 2rem;
     }

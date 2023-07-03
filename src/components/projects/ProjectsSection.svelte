@@ -1,8 +1,8 @@
 <script lang="ts">
     import Project from "./Project3.svelte";
-    import {projects} from "../../data/myData";
     import {onMount} from "svelte";
     import Project2 from "./Project.svelte";
+    import {projects} from "../../data/projects";
 
     let y = 0;
     let projectDivs: NodeListOf<HTMLDivElement>;
@@ -35,10 +35,7 @@
             fixed =  ( projectDivs[0] as HTMLDivElement).getBoundingClientRect().y < 0 &&
                 ( projectDivs[projectDivs.length-1] as HTMLDivElement).getBoundingClientRect().y > 0;
 
-        console.log('fixed', fixed);
-        console.log(( projectDivs[0] as HTMLDivElement).getBoundingClientRect().y)
-        console.log(( projectDivs[projectDivs.length-1] as HTMLDivElement).getBoundingClientRect().y)
-        console.log('..')
+
 
         return minId;
     }
@@ -93,6 +90,8 @@
   .project-wrapper {
     padding-bottom: 6rem;
     padding-top: 6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   @media only screen and (max-width: 600px) {
