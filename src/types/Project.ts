@@ -8,6 +8,7 @@ export interface Project {
     images: string[];
     techs: string[] ;
     mobile: boolean;
+    html: string;
 }
 
 export interface Responsibility {

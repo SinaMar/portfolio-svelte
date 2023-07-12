@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Logo from '../assets/SinaMartensLogo.svg'
+    import Logo from '../../assets/SinaMartensLogo.svg'
     import {onMount} from "svelte";
 
     let navbar: HTMLElement;
@@ -62,13 +62,13 @@
 
 
     $: sticky = y >= offset;
-    let navItems = ['Skills', 'Projects','Interests', 'Contact']
+    export let navItems;
 
 </script>
 
 <svelte:window bind:scrollY={y}/>
 
-<div id="nav-container" class="desktop">
+<div id="nav-container" class={$$props.class}  >
     <img src={Logo} style={  `height: ${sticky ? 2 : 4}rem`} class="logo" alt="Logo"/>
     <nav id="navbar" bind:this={navbar} class:sticky>
         <div id="nav-content">

@@ -1,7 +1,7 @@
 import type {Project, Responsibility} from "../types/Project";
 
-const createProject = (name: string, year: string, description: string, techs: string[], images: string[], responsibilities: string[], responsibilities2: Responsibility[], mobile = false) =>
-    ({name, year, description, techs, images, responsibilities, responsibilities2, mobile});
+const createProject = (name: string, year: string, description: string, techs: string[], images: string[], responsibilities: string[], responsibilities2: Responsibility[], mobile: boolean, html?:string) =>
+    ({name, year, description, techs, images, responsibilities, responsibilities2, mobile, html: html || name});
 
 const swipeResponsibilities: Responsibility[] = [
     {name: "Prototyping", description: "API Design of multiple"},
@@ -29,14 +29,11 @@ export const projects: Project[] = [
             {name: "UI Components", description: "Developing reusable UI Components in collaboration with the UI/UX team, utilizing Storybook. "},
             {name: "Betslip", description: "asd"},
             {name: "Scrum Master", description: "Organizing Scrum Meetings like Dailys and Retrospective "},
-
-
-
         ],
         true
     ),
     createProject(
-        "<span class='nowrap'>Bundesliga 6</span>",
+        "Bundesliga 6",
         "2018",
         "The Bundesliga 6 app provided users with the ability to make predictions on upcoming games of the Bundesliga and compete for a place on the highscore leaderboard. It offered the potential to win cash prizes for those who secured top positions on the leaderboard.  ",
         ["React", "Redux", "RxJS", "Typescript", "Styled Components"],
@@ -49,10 +46,11 @@ export const projects: Project[] = [
             {name: "API Design", description: "API Design of multiple"},
             {name: "Scrum Master", description: "Organizing Scrum Meetings like Dailys and Retrospective "},
         ],
-        true
+        true,
+        "<span class='nowrap'>Bundesliga 6</span>"
     ),
     createProject(
-        "<span class='nowrap'>Cashberry Slots</span>",
+        "Cashberry Slots ",
         "2018",
         "Slot Machine Game, Swipe in",
         ["Phaser", "Typescript", "Html", "CSS", "Webpack"],
@@ -64,7 +62,9 @@ export const projects: Project[] = [
             "Deployment auf AWS S3 Buckets unter Verwendung von Jenkins",
             "Planung, Koordination und Durchführung von Releases"],
         swipeResponsibilities,
-        true
+        true,
+        "<span class='nowrap'>Cashberry Slots</span>"
+
     ),
     createProject(
         "Roulette",

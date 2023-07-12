@@ -14,6 +14,9 @@
 
   --skew: 2deg;
 
+  /*z-index*/
+  --layer-nav: 20;
+
   /*--oblique-top-dag: 2deg;*/
   /*--oblique-top-dag-mirror: -2deg;*/
 
@@ -73,6 +76,12 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 3.2rem;
   line-height: 1.1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nowrap {

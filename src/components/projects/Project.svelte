@@ -9,14 +9,16 @@
     export let project: Project;
     export let mirror = false;
 
-    const {name, year, description, responsibilities, responsibilities2, images, techs, mobile} = project;
+    const {html, year, description, responsibilities, responsibilities2, images, techs, mobile} = project;
 
-    let count = responsibilities.length;
+    console.log(project)
 
-    let seperation = (responsibilities.length % 2 === 0) ? responsibilities.length / 2 : responsibilities.length / 2 + 1;
+    // let count = responsibilities.length;
 
-    const responsibilitiesSplit1: string[] = responsibilities.slice(0, seperation);
-    const responsibilitiesSplit2: string[] = responsibilities.slice(seperation, responsibilities.length);
+    // let seperation = (responsibilities.length % 2 === 0) ? responsibilities.length / 2 : responsibilities.length / 2 + 1;
+    //
+    // const responsibilitiesSplit1: string[] = responsibilities.slice(0, seperation);
+    // const responsibilitiesSplit2: string[] = responsibilities.slice(seperation, responsibilities.length);
 
 
 
@@ -33,7 +35,7 @@
             </div>
         {/if}
         <div class="description" class:mirror>
-            <ProjectDescription {name} {year} {description}/>
+            <ProjectDescription name={html} {year} {description}/>
         </div>
         {#if mirror}
             <div class="carousel">
